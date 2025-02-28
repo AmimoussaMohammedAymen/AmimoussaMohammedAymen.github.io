@@ -1,0 +1,55 @@
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f9fa;
+}
+
+/* Navbar */
+.navbar-brand {
+    font-weight: bold;
+}
+
+/* Hero Section */
+.hero {
+    height: 100vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('background.jpg') no-repeat center center/cover;
+}
+
+/* About Section */
+#about img {
+    max-width: 100%;
+    border-radius: 10px;
+}
+
+/* Project Cards */
+.card {
+    transition: transform 0.3s;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+/* CV Section */
+#cv embed {
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Contact Section */
+#contact-form input,
+#contact-form textarea {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+#contact a {
+    text-decoration: none;
+    font-weight: bold;
+    color: #007bff;
+}
+
+#contact a:hover {
+    text-decoration: underline;
+}
