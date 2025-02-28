@@ -3,44 +3,488 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aymen Aminoussa - AI Engineer</title>
+    <title>Aymen Amimoussa | AI & ML Developer</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <nav>
-            <ul class="nav-links">
-                <li><a href="#about">About</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#education">Education</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+    <nav class="navbar">
+        <div class="logo">
+            <span>A</span>ymen
+        </div>
+        <ul class="nav-links">
+            <li><a href="#home" class="active">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <div class="theme-toggle">
+            <i class="fas fa-moon"></i>
+        </div>
+        <div class="burger">
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
+        </div>
+    </nav>
 
-    <section class="hero">
+    <section id="home" class="hero">
         <div class="hero-content">
-            <h1>Aymen Aminoussa</h1>
-            <h2>AI Engineer | Computer Vision & NLP Specialist</h2>
-            <p class="location">📍 Budapest, Hungary</p>
-            <a href="Amimoussa Mohammed Aymen CV.pdf" download class="cta-button">Download CV</a>
+            <h1>Hello, I'm <span class="highlight">Aymen Amimoussa</span></h1>
+            <div class="typewriter">
+                <span id="typewriter-text"></span><span class="cursor">|</span>
+            </div>
+            <p>Passionate about AI/ML, Computer Vision, and solving complex problems</p>
+            <div class="hero-btns">
+                <a href="#contact" class="btn primary-btn">Contact Me</a>
+                <a href="#projects" class="btn secondary-btn">View My Work</a>
+            </div>
+            <div class="social-icons">
+                <a href="https://www.linkedin.com/in/amimoussaaymen/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/AmimoussamohammedAymen" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="mailto:amimoussaaymen@gmail.com"><i class="fas fa-envelope"></i></a>
+            </div>
+        </div>
+        <div class="hero-image">
+            <div class="image-container">
+                <img src="assets/profile.jpg" alt="Aymen Amimoussa">
+            </div>
         </div>
     </section>
 
-    <section id="about" class="section">
-        <h2>About Me</h2>
-        <p class="about-text">Driven by innovation and technology, I'm a final-year MSc student in Computer Science specializing in Digital Factory 4.0. My expertise lies in machine learning, deep learning, computer vision, and NLP. Passionate about solving real-world problems through AI solutions.</p>
-        <div class="contact-info">
-            <a href="mailto:aminoussaaymen@gmail.com"><i class="fas fa-envelope"></i> Email</a>
-            <a href="https://www.linkedin.com/in/aminoussaaymen/" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+    <section id="about" class="about">
+        <div class="section-header">
+            <h2>About Me</h2>
+            <div class="underline"></div>
+        </div>
+        <div class="about-content">
+            <div class="about-text">
+                <p>Driven by a passion for innovation and technology, I am a Master's student in my last semester in Computer Science specializing in Digital Factory 4.0. With a robust background in mathematics and computing, I have honed my skills in machine learning, deep learning, focusing on computer vision and NLP through both academic projects and professional experiences.</p>
+                <p>I thrive on the challenges presented by cutting-edge offers and opportunities, continually seeking roles where I can apply my expertise to real-world problems. Whether developing AI models, implementing sophisticated computer vision and NLP solutions, or integrating complex systems, I am eager to contribute my technical acumen and creative problem-solving skills to dynamic, forward-thinking teams and environments.</p>
+                <div class="personal-info">
+                    <div class="info-item">
+                        <span class="info-title">Name:</span>
+                        <span class="info-detail">Aymen Amimoussa</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-title">Date of Birth:</span>
+                        <span class="info-detail">September 28, 2001</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-title">Email:</span>
+                        <span class="info-detail">amimoussaaymen@gmail.com</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-title">Phone:</span>
+                        <span class="info-detail">(+36) 708824751</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-title">Location:</span>
+                        <span class="info-detail">Budapest, Hungary</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-title">Languages:</span>
+                        <span class="info-detail">Arabic (Native), English (C2), French (B2), Hungarian (A1)</span>
+                    </div>
+                </div>
+                <a href="assets/Amimoussa_Mohammed_Aymen_CV.pdf" class="btn primary-btn" download>Download CV</a>
+            </div>
         </div>
     </section>
 
-    <!-- Add other sections similarly for Education, Experience, Skills, Projects -->
-    
+    <section id="education" class="education">
+        <div class="section-header">
+            <h2>Education</h2>
+            <div class="underline"></div>
+        </div>
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <h3>Master's Degree (MSc) in Computer Science (Digital Factory 4.0)</h3>
+                    <h4>Eötvös Loránd University (ELTE), Budapest, Hungary</h4>
+                    <p class="timeline-date">September 2023 - Present</p>
+                    <p>Specializing in advanced computing and digital manufacturing technologies</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <h3>Bachelor's Degree (BSc) in Mathematics and Computing</h3>
+                    <h4>Kasdi Merbah University, Ouargla, Algeria</h4>
+                    <p class="timeline-date">September 2020 - June 2023</p>
+                    <p>Developed strong foundation in mathematical principles and computational methods</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <h3>Workshop - Fundamentals of Deep Learning</h3>
+                    <h4>NVIDIA</h4>
+                    <p class="timeline-date">October 15-16, 2022</p>
+                    <p>Intensive workshop on deep learning fundamentals and practical applications</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience" class="experience">
+        <div class="section-header">
+            <h2>Work Experience</h2>
+            <div class="underline"></div>
+        </div>
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <h3>AI Software Developer</h3>
+                    <h4>msg Plaut Hungary, Budapest, Hungary</h4>
+                    <p class="timeline-date">July 2024 - September 2024</p>
+                    <ul>
+                        <li>Developed and trained AI models for image/video analysis and recognition</li>
+                        <li>Integrated AI solutions into software and hardware systems</li>
+                        <li>Managed data collection, preprocessing, and analysis for AI model training and validation</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <h3>Database Administrator Intern</h3>
+                    <h4>Directorate Province of Ouargla City, Algeria</h4>
+                    <p class="timeline-date">February 10-28, 2023</p>
+                    <ul>
+                        <li>Assisted with database maintenance tasks including backups and recovery procedures</li>
+                        <li>Monitored database performance, identified bottlenecks, and optimized queries</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <h3>Computer Hardware Repair Technician Intern</h3>
+                    <h4>Municipality of Ouargla, Algeria</h4>
+                    <p class="timeline-date">July 20 - August 10, 2022</p>
+                    <ul>
+                        <li>Diagnosed and troubleshot hardware issues in desktops, laptops, and peripherals</li>
+                        <li>Performed hardware repairs and upgrades to optimize computer performance</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <h3>Database Administrator Intern</h3>
+                    <h4>Mother and Child Maternity Hospital, Ouargla, Algeria</h4>
+                    <p class="timeline-date">March 20 - April 5, 2022</p>
+                    <ul>
+                        <li>Contributed to database maintenance activities including backups and recovery procedures</li>
+                        <li>Monitored database performance, identified bottlenecks, and optimized queries</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="projects">
+        <div class="section-header">
+            <h2>Projects</h2>
+            <div class="underline"></div>
+        </div>
+        <div class="projects-filter">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="ai-ml">AI/ML</button>
+            <button class="filter-btn" data-filter="computer-vision">Computer Vision</button>
+            <button class="filter-btn" data-filter="nlp">NLP</button>
+        </div>
+        <div class="projects-grid">
+            <div class="project-card" data-category="ai-ml computer-vision">
+                <div class="project-img">
+                    <img src="assets/projects/cnc-machine.jpg" alt="CNC Machine">
+                </div>
+                <div class="project-info">
+                    <h3>Process Monitoring in Case of Image Processing - CNC Machine</h3>
+                    <p>Applied computer vision techniques to monitor and analyze CNC machine processes in real-time.</p>
+                    <div class="project-tags">
+                        <span>Computer Vision</span>
+                        <span>Machine Learning</span>
+                        <span>Process Monitoring</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i></a>
+                        <a href="#" class="project-link"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card" data-category="ai-ml computer-vision">
+                <div class="project-img">
+                    <img src="assets/projects/adas.jpg" alt="ADAS">
+                </div>
+                <div class="project-info">
+                    <h3>Advanced Driver-Assistance Systems (ADAS)</h3>
+                    <p>Developed AI models for advanced driver-assistance systems, focusing on object detection and tracking.</p>
+                    <div class="project-tags">
+                        <span>Computer Vision</span>
+                        <span>Object Detection</span>
+                        <span>ADAS</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i></a>
+                        <a href="#" class="project-link"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card" data-category="ai-ml nlp">
+                <div class="project-img">
+                    <img src="assets/projects/virtual-assistant.jpg" alt="Virtual Assistant">
+                </div>
+                <div class="project-info">
+                    <h3>Virtual Assistant Using Speech Recognition and OpenAI Models</h3>
+                    <p>Created a virtual assistant integrating speech recognition with OpenAI models for natural interactions.</p>
+                    <div class="project-tags">
+                        <span>NLP</span>
+                        <span>Speech Recognition</span>
+                        <span>OpenAI</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i></a>
+                        <a href="#" class="project-link"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card" data-category="ai-ml">
+                <div class="project-img">
+                    <img src="assets/projects/house-prices.jpg" alt="House Prices">
+                </div>
+                <div class="project-info">
+                    <h3>House Prices - Advanced Regression Techniques</h3>
+                    <p>Implemented advanced regression models to predict house prices based on various features.</p>
+                    <div class="project-tags">
+                        <span>Regression</span>
+                        <span>Data Analysis</span>
+                        <span>Feature Engineering</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i></a>
+                        <a href="#" class="project-link"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card" data-category="ai-ml">
+                <div class="project-img">
+                    <img src="assets/projects/insurance.jpg" alt="Insurance">
+                </div>
+                <div class="project-info">
+                    <h3>Caravan Insurance Prospect Prediction</h3>
+                    <p>Built classification models to predict potential insurance customers based on demographic data.</p>
+                    <div class="project-tags">
+                        <span>Classification</span>
+                        <span>Predictive Modeling</span>
+                        <span>Data Mining</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i></a>
+                        <a href="#" class="project-link"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card" data-category="ai-ml computer-vision">
+                <div class="project-img">
+                    <img src="assets/projects/kannada.jpg" alt="Kannada Digits">
+                </div>
+                <div class="project-info">
+                    <h3>Kannada Digit Recognition</h3>
+                    <p>Developed CNN models to recognize Kannada handwritten digits with high accuracy.</p>
+                    <div class="project-tags">
+                        <span>CNN</span>
+                        <span>Image Recognition</span>
+                        <span>Deep Learning</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i></a>
+                        <a href="#" class="project-link"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="skills">
+        <div class="section-header">
+            <h2>Skills</h2>
+            <div class="underline"></div>
+        </div>
+        <div class="skills-content">
+            <div class="skills-category">
+                <h3>Technical Skills</h3>
+                <div class="skills-grid">
+                    <div class="skill-item">
+                        <div class="skill-name">Python</div>
+                        <div class="skill-bar">
+                            <div class="skill-level" style="width: 95%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">Machine Learning</div>
+                        <div class="skill-bar">
+                            <div class="skill-level" style="width: 90%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">TensorFlow/PyTorch</div>
+                        <div class="skill-bar">
+                            <div class="skill-level" style="width: 85%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">Computer Vision</div>
+                        <div class="skill-bar">
+                            <div class="skill-level" style="width: 90%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">NLP</div>
+                        <div class="skill-bar">
+                            <div class="skill-level" style="width: 80%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">SQL</div>
+                        <div class="skill-bar">
+                            <div class="skill-level" style="width: 85%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">Java/C</div>
+                        <div class="skill-bar">
+                            <div class="skill-level" style="width: 75%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">R</div>
+                        <div class="skill-bar">
+                            <div class="skill-level" style="width: 70%;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="skills-category">
+                <h3>Soft Skills</h3>
+                <div class="skills-grid">
+                    <div class="skill-item">
+                        <div class="skill-name">Problem Solving</div>
+                        <div class="skill-bar">
+                            <div class="skill-level" style="width: 95%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">Critical Thinking</div>
+                        <div class="skill-bar">
+                            <div class="skill-level" style="width: 90%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">Adaptability</div>
+                        <div class="skill-bar">
+                            <div class="skill-level" style="width: 85%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">Teamwork</div>
+                        <div class="skill-bar">
+                            <div class="skill-level" style="width: 90%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">Time Management</div>
+                        <div class="skill-bar">
+                            <div class="skill-level" style="width: 85%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">Active Learning</div>
+                        <div class="skill-bar">
+                            <div class="skill-level" style="width: 90%;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="section-header">
+            <h2>Contact Me</h2>
+            <div class="underline"></div>
+        </div>
+        <div class="contact-content">
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <div>
+                        <h3>Location</h3>
+                        <p>Budapest, Bekecs u. 102, 1162 Budapest, Hungary</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <div>
+                        <h3>Email</h3>
+                        <p>amimoussaaymen@gmail.com</p>
+                        <p>efg4ex@inf.elte.hu</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <div>
+                        <h3>Phone</h3>
+                        <p>(+36) 708824751</p>
+                    </div>
+                </div>
+                <div class="contact-social">
+                    <h3>Connect With Me</h3>
+                    <div class="social-icons">
+                        <a href="https://www.linkedin.com/in/amimoussaaymen/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://github.com/AmimoussamohammedAymen" target="_blank"><i class="fab fa-github"></i></a>
+                        <a href="mailto:amimoussaaymen@gmail.com"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="contact-form">
+                <form id="contactForm">
+                    <div class="form-group">
+                        <input type="text" id="name" name="name" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" name="email" placeholder="Your Email" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="subject" name="subject" placeholder="Subject" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="message" name="message" placeholder="Your Message" required></textarea>
+                    </div>
+                    <button type="submit" class="btn primary-btn">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2025 Aymen Amimoussa. All Rights Reserved.</p>
+            <div class="social-icons">
+                <a href="https://www.linkedin.com/in/amimoussaaymen/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/AmimoussamohammedAymen" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="mailto:amimoussaaymen@gmail.com"><i class="fas fa-envelope"></i></a>
+            </div>
+        </div>
+    </footer>
+
     <script src="script.js"></script>
 </body>
 </html>
