@@ -1,55 +1,84 @@
-/* General Styles */
+:root {
+    --primary-color: #2A3B47;
+    --secondary-color: #5C6B73;
+    --accent-color: #42B983;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
 body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f8f9fa;
+    line-height: 1.6;
+    color: var(--primary-color);
 }
 
-/* Navbar */
-.navbar-brand {
-    font-weight: bold;
-}
-
-/* Hero Section */
 .hero {
+    background: linear-gradient(rgba(42, 59, 71, 0.9), rgba(42, 59, 71, 0.9)),
+                url('background.jpg') center/cover;
     height: 100vh;
-    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('background.jpg') no-repeat center center/cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
 }
 
-/* About Section */
-#about img {
-    max-width: 100%;
-    border-radius: 10px;
+.hero-content h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
 }
 
-/* Project Cards */
-.card {
-    transition: transform 0.3s;
-}
-
-.card:hover {
-    transform: scale(1.05);
-}
-
-/* CV Section */
-#cv embed {
-    border: 2px solid #ddd;
-    border-radius: 10px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-/* Contact Section */
-#contact-form input,
-#contact-form textarea {
-    max-width: 600px;
-    margin: 0 auto;
-}
-
-#contact a {
+.cta-button {
+    display: inline-block;
+    padding: 1rem 2rem;
+    background-color: var(--accent-color);
+    color: white;
     text-decoration: none;
-    font-weight: bold;
-    color: #007bff;
+    border-radius: 5px;
+    margin-top: 2rem;
+    transition: transform 0.3s ease;
 }
 
-#contact a:hover {
-    text-decoration: underline;
+.cta-button:hover {
+    transform: translateY(-3px);
+}
+
+.section {
+    padding: 5rem 10%;
+}
+
+#about {
+    background-color: #f9f9f9;
+}
+
+.contact-info {
+    margin-top: 2rem;
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+}
+
+.contact-info a {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+/* Add more styles for other sections */
+
+@media (max-width: 768px) {
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+    
+    nav ul {
+        flex-direction: column;
+        text-align: center;
+    }
 }
