@@ -1,224 +1,191 @@
-// Navbar functionality
+// Improved interactivity, accessibility and small performance tweaks
+
 const burger = document.querySelector('.burger');
 const nav = document.querySelector('.nav-links');
-const navLinks = document.querySelectorAll('.nav-links li');
+const navLinks = document.querySelectorAll('.nav-links li a');
 const navbar = document.querySelector('.navbar');
 const themeToggle = document.querySelector('.theme-toggle');
 const filterBtns = document.querySelectorAll('.filter-btn');
 const projectCards = document.querySelectorAll('.project-card');
 const contactForm = document.getElementById('contactForm');
+const typewriterElement = document.getElementById('typewriter-text');
 
-// Toggle navigation menu
-burger.addEventListener('click', () => {
+
+// --------- Burger / Mobile Nav ----------
+if (burger) {
+  burger.addEventListener('click', () => {
+    const expanded = burger.getAttribute('aria-expanded') === 'true';
+    burger.setAttribute('aria-expanded', String(!expanded));
     nav.classList.toggle('active');
     burger.classList.toggle('active');
-    
-    // Animate links
-    navLinks.forEach((link, index) => {
-        if (link.style.animation) {
-            link.style.animation = '';
-        } else {
-            link.style.animation = `navLinkFade 0.5s ease forwards ${index / 7 + 0.3}s`;
-        }
-    });
-});
+  });
+}
 
-// Navbar scroll effect
+// --------- Navbar scroll effect ----------
 window.addEventListener('scroll', () => {
-    if (window.scrollY > 100) {
-        navbar.classList.add('scrolled');
-    } else {
-        navbar.classList.remove('scrolled');
-    }
+  if (window.scrollY > 80) {
+    navbar.classList.add('scrolled');
+  } else {
+    navbar.classList.remove('scrolled');
+  }
 });
 
-// Theme toggle functionality
-themeToggle.addEventListener('click', () => {
-    document.body.classList.toggle('dark-mode');
-    if (document.body.classList.contains('dark-mode')) {
-        themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
-        localStorage.setItem('theme', 'dark');
-    } else {
-        themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
-        localStorage.setItem('theme', 'light');
-    }
-});
-
-// Check for saved theme preference
-const savedTheme = localStorage.getItem('theme');
-if (savedTheme === 'dark') {
+// --------- Theme toggle with persistence ----------
+function setTheme(theme) {
+  if (theme === 'dark') {
     document.body.classList.add('dark-mode');
     themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
-} else {
+    themeToggle.setAttribute('aria-pressed', 'true');
+  } else {
+    document.body.classList.remove('dark-mode');
     themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+    themeToggle.setAttribute('aria-pressed', 'false');
+  }
+  try { localStorage.setItem('theme', theme); } catch(e){}
 }
 
-// Active navigation link based on scroll position
-window.addEventListener('scroll', () => {
-    let current = '';
-    const sections = document.querySelectorAll('section');
-    
-    sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.clientHeight;
-        if (window.pageYOffset >= (sectionTop - 200)) {
-            current = section.getAttribute('id');
-        }
-    });
-
-    navLinks.forEach(link => {
-        link.querySelector('a').classList.remove('active');
-        if (link.querySelector('a').getAttribute('href').substring(1) === current) {
-            link.querySelector('a').classList.add('active');
-        }
-    });
+themeToggle.addEventListener('click', () => {
+  const isDark = document.body.classList.contains('dark-mode');
+  setTheme(isDark ? 'light' : 'dark');
 });
 
-// Project filter functionality
+// Apply saved theme
+try {
+  const saved = localStorage.getItem('theme') || (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+  setTheme(saved);
+} catch(e){ setTheme('light'); }
+
+
+// --------- Active nav link on scroll ----------
+const sections = document.querySelectorAll('main section[id]');
+function onScrollActiveLink() {
+  let current = '';
+  sections.forEach(section => {
+    const top = section.offsetTop - 120;
+    if (window.pageYOffset >= top) {
+      current = section.getAttribute('id');
+    }
+  });
+  navLinks.forEach(a => {
+    a.classList.remove('active');
+    if (a.getAttribute('href').substring(1) === current) a.classList.add('active');
+  });
+}
+window.addEventListener('scroll', onScrollActiveLink);
+window.addEventListener('resize', onScrollActiveLink);
+onScrollActiveLink();
+
+
+// --------- Project filtering ----------
 filterBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-        // Remove active class from all buttons
-        filterBtns.forEach(btn => {
-            btn.classList.remove('active');
-        });
-        
-        // Add active class to clicked button
-        btn.classList.add('active');
-        
-        const filterValue = btn.getAttribute('data-filter');
-        
-        projectCards.forEach(card => {
-            if (filterValue === 'all') {
-                card.style.display = 'block';
-            } else {
-                if (card.getAttribute('data-category').includes(filterValue)) {
-                    card.style.display = 'block';
-                } else {
-                    card.style.display = 'none';
-                }
-            }
-        });
+  btn.addEventListener('click', () => {
+    filterBtns.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const filter = btn.dataset.filter;
+    projectCards.forEach(card => {
+      const cats = card.dataset.category;
+      if (filter === 'all' || cats.includes(filter)) {
+        card.style.display = 'block';
+      } else {
+        card.style.display = 'none';
+      }
     });
+  });
 });
 
-// Contact form submission
+
+// --------- Contact form (example using fetch) ----------
 if (contactForm) {
-    contactForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        
-        // Get form values
-        const name = document.getElementById('name').value;
-        const email = document.getElementById('email').value;
-        const subject = document.getElementById('subject').value;
-        const message = document.getElementById('message').value;
-        
-        // Simple form validation
-        if (name && email && subject && message) {
-            // This would normally send data to a server
-            // For now, just show an alert and reset the form
-            alert('Thank you for your message! I will get back to you soon.');
-            contactForm.reset();
-        } else {
-            alert('Please fill in all fields.');
-        }
-    });
+  contactForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const formStatus = document.getElementById('formStatus');
+    const data = {
+      name: contactForm.name.value.trim(),
+      email: contactForm.email.value.trim(),
+      subject: contactForm.subject.value.trim(),
+      message: contactForm.message.value.trim()
+    };
+    if (!data.name || !data.email || !data.subject || !data.message) {
+      formStatus.textContent = 'Please fill in all fields.';
+      return;
+    }
+
+    // Example: Replace the URL with your Formspree endpoint or backend URL
+    const endpoint = 'https://formspree.io/f/your-form-id'; // <-- change this
+
+    try {
+      formStatus.textContent = 'Sending…';
+      const res = await fetch(endpoint, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(data)
+      });
+      if (res.ok) {
+        formStatus.textContent = 'Thanks — your message was sent.';
+        contactForm.reset();
+      } else {
+        const text = await res.text();
+        formStatus.textContent = 'There was an error sending the message.';
+        console.warn('Form error', res.status, text);
+      }
+    } catch (err) {
+      formStatus.textContent = 'There was an error sending the message.';
+      console.error(err);
+    }
+  });
 }
 
-// Typewriter effect
-const typewriterElement = document.getElementById('typewriter-text');
+
+// --------- Typewriter effect ----------
 const texts = [
-    'AI & Machine Learning Engineer', 
-    'Computer Vision Specialist', 
-    'NLP Developer',
-    'MSc Student in Digital Factory 4.0'
+  'Machine Learning & Data Engineer',
+  'Computer Vision Specialist',
+  'NLP & Signal Processing',
+  'MSc — Digital Factory 4.0'
 ];
-let textIndex = 0;
-let charIndex = 0;
-let isDeleting = false;
-let typingDelay = 100;
-let deletingDelay = 50;
-let newTextDelay = 2000;
-
+let tIndex = 0, cIndex = 0, deleting = false;
 function typeWriter() {
-    const currentText = texts[textIndex];
-    
-    if (isDeleting) {
-        // Remove character
-        typewriterElement.textContent = currentText.substring(0, charIndex - 1);
-        charIndex--;
-        typingDelay = deletingDelay;
-    } else {
-        // Add character
-        typewriterElement.textContent = currentText.substring(0, charIndex + 1);
-        charIndex++;
-        typingDelay = 100;
-    }
-    
-    // If word is complete
-    if (!isDeleting && charIndex === currentText.length) {
-        // Pause at end
-        typingDelay = newTextDelay;
-        isDeleting = true;
-    } else if (isDeleting && charIndex === 0) {
-        isDeleting = false;
-        // Move to next word
-        textIndex++;
-        // If we've reached the end of the texts array, start over
-        if (textIndex >= texts.length) {
-            textIndex = 0;
-        }
-        // Pause before typing next word
-        typingDelay = 500;
-    }
-    
-    setTimeout(typeWriter, typingDelay);
+  if (!typewriterElement) return;
+  const current = texts[tIndex];
+  if (deleting) {
+    cIndex = Math.max(0, cIndex - 1);
+    typewriterElement.textContent = current.substring(0, cIndex);
+  } else {
+    cIndex = Math.min(current.length, cIndex + 1);
+    typewriterElement.textContent = current.substring(0, cIndex);
+  }
+
+  let delay = deleting ? 40 : 100;
+  if (!deleting && cIndex === current.length) { delay = 1800; deleting = true; }
+  if (deleting && cIndex === 0) { deleting = false; tIndex = (tIndex + 1) % texts.length; delay = 500; }
+
+  setTimeout(typeWriter, delay);
 }
+window.addEventListener('load', () => { setTimeout(typeWriter, 600); });
 
-// Start the typewriter effect when the page loads
-window.addEventListener('load', () => {
-    if (typewriterElement) {
-        setTimeout(typeWriter, 1000);
+
+// --------- Smooth anchor scrolling (better accessibility) ----------
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', function(e) {
+    const href = this.getAttribute('href');
+    if (href.length === 1) return;
+    e.preventDefault();
+    const target = document.querySelector(href);
+    if (!target) return;
+    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    // close nav if mobile
+    if (nav.classList.contains('active')) {
+      nav.classList.remove('active'); burger.classList.remove('active');
     }
+  });
 });
 
-// Smooth scrolling for anchor links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-        e.preventDefault();
-        
-        // Close mobile navigation if open
-        if (nav.classList.contains('active')) {
-            nav.classList.remove('active');
-            burger.classList.remove('active');
-        }
-        
-        const targetId = this.getAttribute('href');
-        const targetSection = document.querySelector(targetId);
-        
-        if (targetSection) {
-            window.scrollTo({
-                top: targetSection.offsetTop,
-                behavior: 'smooth'
-            });
-        }
-    });
-});
 
-// Animation on scroll
-window.addEventListener('scroll', () => {
-    const sections = document.querySelectorAll('section');
-    
-    sections.forEach(section => {
-        const sectionTop = section.getBoundingClientRect().top;
-        const windowHeight = window.innerHeight;
-        
-        if (sectionTop < windowHeight * 0.75) {
-            section.classList.add('appear');
-        }
-    });
-});
+// --------- Appear on scroll ----------
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) entry.target.classList.add('appear');
+  });
+}, { threshold: 0.15 });
+document.querySelectorAll('section').forEach(s => io.observe(s));
 
-// Initialize any necessary elements
-document.addEventListener('DOMContentLoaded', () => {
-    // Any initialization code goes here
-});
