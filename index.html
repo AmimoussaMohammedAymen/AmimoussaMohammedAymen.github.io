@@ -308,23 +308,69 @@
   </section>
 
   <!-- Contact -->
-  <section id="contact" class="contact container">
-    <div class="section-header"><h2>Contact Me</h2><div class="underline"></div></div>
-    <div class="contact-content">
-      <div class="contact-info">
-        <div class="contact-item"><i class="fas fa-map-marker-alt"></i><p>Budapest, Hungary</p></div>
-        <div class="contact-item"><i class="fas fa-envelope"></i><p><a href="mailto:amimoussaaymen@gmail.com">amimoussaaymen@gmail.com</a></p></div>
-        <div class="contact-item"><i class="fas fa-phone"></i><p>(+36) 708824751</p></div>
+  <!-- Contact -->
+<section id="contact" class="contact container">
+  <div class="section-header">
+    <h2>Contact Me</h2>
+    <div class="underline"></div>
+  </div>
+
+  <div class="contact-wrapper">
+    <!-- Contact Info -->
+    <div class="contact-info">
+      <h3>Let’s Connect</h3>
+      <p>If you’d like to collaborate, discuss AI projects, or just say hi — I’d love to hear from you!  
+      You can reach me through any of the channels below or use the contact form.</p>
+
+      <div class="contact-details">
+        <div class="contact-item">
+          <i class="fas fa-envelope"></i>
+          <div>
+            <h4>Email</h4>
+            <a href="mailto:amimoussaaymen@gmail.com">amimoussaaymen@gmail.com</a>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <i class="fas fa-phone"></i>
+          <div>
+            <h4>Phone</h4>
+            <p>(+36) 708824751</p>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <i class="fas fa-map-marker-alt"></i>
+          <div>
+            <h4>Location</h4>
+            <p>Budapest, Hungary</p>
+          </div>
+        </div>
+
+        <div class="contact-social">
+          <a href="https://www.linkedin.com/in/amimoussaaymen" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+          <a href="https://github.com/AmimoussamohammedAymen" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+          <a href="mailto:amimoussaaymen@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+        </div>
       </div>
-      <form id="contactForm">
-        <input type="text" id="name" placeholder="Name" required>
-        <input type="email" id="email" placeholder="Email" required>
-        <input type="text" id="subject" placeholder="Subject" required>
-        <textarea id="message" placeholder="Message" required></textarea>
+    </div>
+
+    <!-- Contact Form -->
+    <div class="contact-form">
+      <form id="contactForm" novalidate>
+        <div class="form-row">
+          <input type="text" id="name" name="name" placeholder="Your Name" required>
+          <input type="email" id="email" name="email" placeholder="Your Email" required>
+        </div>
+        <input type="text" id="subject" name="subject" placeholder="Subject" required>
+        <textarea id="message" name="message" placeholder="Your Message" rows="6" required></textarea>
         <button type="submit" class="btn primary-btn">Send Message</button>
+        <p id="formStatus" class="form-status"></p>
       </form>
     </div>
-  </section>
+  </div>
+</section>
+
 
   <footer class="footer">
     <p>&copy; 2025 Aymen Amimoussa — Machine Learning & Data Engineer</p>
