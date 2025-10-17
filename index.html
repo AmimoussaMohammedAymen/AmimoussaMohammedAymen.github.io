@@ -1,426 +1,219 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aymen Amimoussa | AI & ML Developer</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Aymen Amimoussa — Machine Learning & Data Engineer</title>
+  <meta name="description" content="Portfolio of Aymen Amimoussa — Machine Learning & Data Engineer. MSc in Computer Science (Digital Factory 4.0). Specializing in Machine Learning, Computer Vision, and Data Engineering."/>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="assets/favicon.png">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
+
 <body>
-    <nav class="navbar">
-        <div class="logo">
-            <span>A</span>ymen
-        </div>
-        <ul class="nav-links">
-            <li><a href="#home" class="active">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#education">Education</a></li>
-            <li><a href="#experience">Experience</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-        <div class="theme-toggle">
-            <i class="fas fa-moon"></i>
-        </div>
-        <div class="burger">
-            <div class="line1"></div>
-            <div class="line2"></div>
-            <div class="line3"></div>
-        </div>
-    </nav>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="logo"><span>A</span>ymen</div>
+    <button class="burger" aria-label="Toggle navigation"><span></span><span></span><span></span></button>
+    <ul class="nav-links">
+      <li><a href="#home" class="active">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#certifications">Certifications</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <button class="theme-toggle" aria-label="Toggle theme"><i class="fas fa-moon"></i></button>
+  </nav>
 
-    <section id="home" class="hero">
-        <div class="hero-content">
-            <h1>Hello, I'm <span class="highlight">Aymen Amimoussa</span></h1>
-            <div class="typewriter">
-                <span id="typewriter-text"></span><span class="cursor">|</span>
-            </div>
-            <p>Passionate about AI/ML, Computer Vision, and solving complex problems</p>
-            <div class="hero-btns">
-                <a href="#contact" class="btn primary-btn">Contact Me</a>
-                <a href="#projects" class="btn secondary-btn">View My Work</a>
-            </div>
-            <div class="social-icons">
-                <a href="https://www.linkedin.com/in/amimoussaaymen/" target="_blank"><i class="fab fa-linkedin"></i></a>
-                <a href="https://github.com/AmimoussamohammedAymen" target="_blank"><i class="fab fa-github"></i></a>
-                <a href="mailto:amimoussaaymen@gmail.com"><i class="fas fa-envelope"></i></a>
-            </div>
-        </div>
-        <div class="hero-image">
-            <div class="image-container">
-                <img src="assets/profile.jpg" alt="Aymen Amimoussa">
-            </div>
-        </div>
-    </section>
-
-    <section id="about" class="about container">
-  <div class="section-header">
-    <h2>About Me</h2>
-    <div class="underline"></div>
-  </div>
-
-  <div class="about-content">
-    <div class="about-text">
-      <p>
-        I'm <strong>Aymen Amimoussa</strong> — a <strong>Machine Learning & Data Engineer</strong> passionate about building intelligent, data-driven systems.  
-        With a <strong>Master’s in Computer Science (Digital Factory 4.0)</strong> from <em>Eötvös Loránd University</em>, I specialize in machine learning, computer vision, and data engineering.  
-      </p>
-
-      <p>
-        My hands-on experience spans <strong>developing deep learning models</strong> for computer vision and NLP, <strong>constructing scalable data pipelines</strong>, and deploying end-to-end AI applications.  
-        I enjoy tackling real-world challenges through innovation, critical thinking, and efficient problem-solving.
-      </p>
-
-      <p>
-        I'm seeking opportunities as a <strong>Machine Learning Engineer</strong> or <strong>Data Engineer</strong> where I can apply my skills in model design, data processing, and system integration — contributing to impactful, production-ready AI solutions.
-      </p>
-
-      <div class="personal-info">
-        <div class="info-item"><span class="info-title">Name:</span><span class="info-detail">Aymen Amimoussa</span></div>
-        <div class="info-item"><span class="info-title">Location:</span><span class="info-detail">Budapest, Hungary</span></div>
-        <div class="info-item"><span class="info-title">Email:</span><span class="info-detail"><a href="mailto:amimoussaaymen@gmail.com">amimoussaaymen@gmail.com</a></span></div>
-        <div class="info-item"><span class="info-title">Phone:</span><span class="info-detail">(+36) 708824751</span></div>
-        <div class="info-item"><span class="info-title">LinkedIn:</span><span class="info-detail"><a href="https://www.linkedin.com/in/amimoussaaymen" target="_blank">amimoussaaymen</a></span></div>
-        <div class="info-item"><span class="info-title">Languages:</span><span class="info-detail">Arabic (Native), English (C2), French (B2), Hungarian (A1)</span></div>
+  <!-- Hero -->
+  <section id="home" class="hero">
+    <div class="hero-content container">
+      <h1>Hello — I'm <span class="highlight">Aymen Amimoussa</span></h1>
+      <p class="lead">Machine Learning & Data Engineer passionate about building intelligent, scalable systems using AI, Computer Vision, and Data Science.</p>
+      <div class="typewriter"><span id="typewriter-text"></span><span class="cursor">|</span></div>
+      <div class="hero-btns">
+        <a href="#contact" class="btn primary-btn">Contact Me</a>
+        <a href="assets/Amimoussa Aymen .pdf" download class="btn secondary-btn">Download CV</a>
+      </div>
+      <div class="social-icons">
+        <a href="https://www.linkedin.com/in/amimoussaaymen" target="_blank"><i class="fab fa-linkedin"></i></a>
+        <a href="https://github.com/AmimoussamohammedAymen" target="_blank"><i class="fab fa-github"></i></a>
+        <a href="mailto:amimoussaaymen@gmail.com"><i class="fas fa-envelope"></i></a>
       </div>
     </div>
-  </div>
-</section>
-
-
-    <section id="education" class="education">
-        <div class="section-header">
-            <h2>Education</h2>
-            <div class="underline"></div>
-        </div>
-        <div class="timeline">
-            <div class="timeline-item">
-                <div class="timeline-dot"></div>
-                <div class="timeline-content">
-                    <h3>Master's Degree (MSc) in Computer Science (Digital Factory 4.0)</h3>
-                    <h4>Eötvös Loránd University (ELTE), Budapest, Hungary</h4>
-                    <p class="timeline-date">September 2023 - Present</p>
-                    <p>Specializing in advanced computing and digital manufacturing technologies</p>
-                </div>
-            </div>
-            <div class="timeline-item">
-                <div class="timeline-dot"></div>
-                <div class="timeline-content">
-                    <h3>Bachelor's Degree (BSc) in Mathematics and Computing</h3>
-                    <h4>Kasdi Merbah University, Ouargla, Algeria</h4>
-                    <p class="timeline-date">September 2020 - June 2023</p>
-                    <p>Developed strong foundation in mathematical principles and computational methods</p>
-                </div>
-            </div>
-            <div class="timeline-item">
-                <div class="timeline-dot"></div>
-                <div class="timeline-content">
-                    <h3>Workshop - Fundamentals of Deep Learning</h3>
-                    <h4>NVIDIA</h4>
-                    <p class="timeline-date">October 15-16, 2022</p>
-                    <p>Intensive workshop on deep learning fundamentals and practical applications</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="experience" class="experience">
-        <div class="section-header">
-            <h2>Work Experience</h2>
-            <div class="underline"></div>
-        </div>
-        <div class="timeline">
-            <div class="timeline-item">
-                <div class="timeline-dot"></div>
-                <div class="timeline-content">
-                    <h3>AI Software Developer</h3>
-                    <h4>msg Plaut Hungary, Budapest, Hungary</h4>
-                    <p class="timeline-date">July 2024 - September 2024</p>
-                    <ul>
-                        <li>Developed and trained AI models for image/video analysis and recognition</li>
-                        <li>Integrated AI solutions into software and hardware systems</li>
-                        <li>Managed data collection, preprocessing, and analysis for AI model training and validation</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="timeline-item">
-                <div class="timeline-dot"></div>
-                <div class="timeline-content">
-                    <h3>Database Administrator Intern</h3>
-                    <h4>Directorate Province of Ouargla City, Algeria</h4>
-                    <p class="timeline-date">February 10-28, 2023</p>
-                    <ul>
-                        <li>Assisted with database maintenance tasks including backups and recovery procedures</li>
-                        <li>Monitored database performance, identified bottlenecks, and optimized queries</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="timeline-item">
-                <div class="timeline-dot"></div>
-                <div class="timeline-content">
-                    <h3>Computer Hardware Repair Technician Intern</h3>
-                    <h4>Municipality of Ouargla, Algeria</h4>
-                    <p class="timeline-date">July 20 - August 10, 2022</p>
-                    <ul>
-                        <li>Diagnosed and troubleshot hardware issues in desktops, laptops, and peripherals</li>
-                        <li>Performed hardware repairs and upgrades to optimize computer performance</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="timeline-item">
-                <div class="timeline-dot"></div>
-                <div class="timeline-content">
-                    <h3>Database Administrator Intern</h3>
-                    <h4>Mother and Child Maternity Hospital, Ouargla, Algeria</h4>
-                    <p class="timeline-date">March 20 - April 5, 2022</p>
-                    <ul>
-                        <li>Contributed to database maintenance activities including backups and recovery procedures</li>
-                        <li>Monitored database performance, identified bottlenecks, and optimized queries</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="projects" class="projects">
-        <div class="section-header">
-            <h2>Projects</h2>
-            <div class="underline"></div>
-        </div>
-        <div class="projects-filter">
-            <button class="filter-btn active" data-filter="all">All</button>
-            <button class="filter-btn" data-filter="ai-ml">AI/ML</button>
-            <button class="filter-btn" data-filter="computer-vision">Computer Vision</button>
-            <button class="filter-btn" data-filter="nlp">NLP</button>
-        </div>
-        <div class="projects-grid">
-    <!-- Smart Quality Control -->
-    <div class="project-card" data-category="ai-ml computer-vision">
-        <div class="project-img">
-            <img src="assets/projects/smart-quality-control.jpg" alt="Smart Quality Control System">
-        </div>
-        <div class="project-info">
-            <h3>Smart Quality Control System</h3>
-            <p>Computer Vision Quality Control System for defect detection using PyTorch and OpenCV.</p>
-            <div class="project-tags">
-                <span>Computer Vision</span>
-                <span>PyTorch</span>
-                <span>OpenCV</span>
-            </div>
-            <div class="project-links">
-                <a href="https://github.com/AmimoussamohammedAymen/smart-quality-control" class="project-link" target="_blank"><i class="fab fa-github"></i></a>
-            </div>
-        </div>
-    </div>
-
-    <!-- Environmental Insights -->
-    <div class="project-card" data-category="ai-ml">
-        <div class="project-img">
-            <img src="assets/projects/environmental-insights.jpg" alt="Environmental Insights">
-        </div>
-        <div class="project-info">
-            <h3>Environmental Insights</h3>
-            <p>Data Engineering and ML pipeline for environmental data analysis and pollution prediction.</p>
-            <div class="project-tags">
-                <span>Machine Learning</span>
-                <span>Data Engineering</span>
-                <span>Python</span>
-            </div>
-            <div class="project-links">
-                <a href="https://github.com/AmimoussamohammedAymen/environmental-insights" class="project-link" target="_blank"><i class="fab fa-github"></i></a>
-            </div>
-        </div>
-    </div>
-
-    <!-- Object Detection System -->
-    <div class="project-card" data-category="ai-ml computer-vision">
-        <div class="project-img">
-            <img src="assets/projects/object-detection.jpg" alt="Object Detection System">
-        </div>
-        <div class="project-info">
-            <h3>Real-time Object Detection System</h3>
-            <p>Real-time object detection and tracking system using YOLOv8, FastAPI, and Streamlit.</p>
-            <div class="project-tags">
-                <span>YOLOv8</span>
-                <span>Computer Vision</span>
-                <span>FastAPI</span>
-                <span>Streamlit</span>
-            </div>
-            <div class="project-links">
-                <a href="https://github.com/AmimoussamohammedAymen/object-detection-system" class="project-link" target="_blank"><i class="fab fa-github"></i></a>
-            </div>
-        </div>
-    </div>
-
-    <!-- Process Monitoring Project -->
-    <div class="project-card" data-category="ai-ml computer-vision">
-        <div class="project-img">
-            <img src="assets/projects/cnc-machine.jpg" alt="CNC Machine">
-        </div>
-        <div class="project-info">
-            <h3>Process Monitoring in Case of Image Processing - CNC Machine</h3>
-            <p>Applied computer vision techniques to monitor and analyze CNC machine processes in real-time.</p>
-            <div class="project-tags">
-                <span>Computer Vision</span>
-                <span>Machine Learning</span>
-                <span>Process Monitoring</span>
-            </div>
-            <div class="project-links">
-                <a href="https://github.com/AmimoussamohammedAymen/Process-Monitoring-in-Case-of-Image-Processing" class="project-link" target="_blank"><i class="fab fa-github"></i></a>
-            </div>
-        </div>
-    </div>
-
-    <!-- House Prices -->
-    <div class="project-card" data-category="ai-ml">
-        <div class="project-img">
-            <img src="assets/projects/house-prices.jpg" alt="House Prices">
-        </div>
-        <div class="project-info">
-            <h3>House Prices - Advanced Regression Techniques</h3>
-            <p>Implemented advanced regression models to predict house prices based on various features.</p>
-            <div class="project-tags">
-                <span>Regression</span>
-                <span>Data Analysis</span>
-                <span>Feature Engineering</span>
-            </div>
-            <div class="project-links">
-                <a href="https://github.com/AmimoussamohammedAymen/House-Prices---Advanced-Regression-Techniques-Project" class="project-link" target="_blank"><i class="fab fa-github"></i></a>
-            </div>
-        </div>
-    </div>
-
-    <!-- Kannada Digit Recognition -->
-    <div class="project-card" data-category="ai-ml computer-vision">
-        <div class="project-img">
-            <img src="assets/projects/kannada.jpg" alt="Kannada Digit Recognition">
-        </div>
-        <div class="project-info">
-            <h3>Kannada Digit Recognition</h3>
-            <p>Developed CNN models to recognize Kannada handwritten digits with high accuracy.</p>
-            <div class="project-tags">
-                <span>CNN</span>
-                <span>Image Recognition</span>
-                <span>Deep Learning</span>
-            </div>
-            <div class="project-links">
-                <a href="https://github.com/AmimoussamohammedAymen/Kannada-Digit-Recognition-Project" class="project-link" target="_blank"><i class="fab fa-github"></i></a>
-            </div>
-        </div>
-    </div>
-</div>
-
-    </section>
-
-    <section id="skills" class="skills container">
-  <div class="section-header">
-    <h2>Skills</h2>
-    <div class="underline"></div>
-  </div>
-
-  <div class="skills-content">
-    <!-- Technical Skills -->
-    <div class="skills-category">
-      <h3>Technical Skills</h3>
-      <div class="skills-grid">
-        <div class="skill-item"><div class="skill-name">Python / R / Java / C</div><div class="skill-bar"><div class="skill-level" style="width:95%"></div></div></div>
-        <div class="skill-item"><div class="skill-name">Machine Learning & Deep Learning</div><div class="skill-bar"><div class="skill-level" style="width:90%"></div></div></div>
-        <div class="skill-item"><div class="skill-name">PyTorch / TensorFlow / Scikit-learn / Keras</div><div class="skill-bar"><div class="skill-level" style="width:88%"></div></div></div>
-        <div class="skill-item"><div class="skill-name">Computer Vision (YOLO, U-Net, segmentation, tracking)</div><div class="skill-bar"><div class="skill-level" style="width:92%"></div></div></div>
-        <div class="skill-item"><div class="skill-name">Data Engineering (ETL, Pipelines, Pandas, SQL)</div><div class="skill-bar"><div class="skill-level" style="width:85%"></div></div></div>
-        <div class="skill-item"><div class="skill-name">Natural Language Processing (Transformers, SpaCy, NLTK)</div><div class="skill-bar"><div class="skill-level" style="width:82%"></div></div></div>
-        <div class="skill-item"><div class="skill-name">Advanced Driver Assistance Systems (ADAS) & Sensors</div><div class="skill-bar"><div class="skill-level" style="width:75%"></div></div></div>
-        <div class="skill-item"><div class="skill-name">Databases & SQL Optimization</div><div class="skill-bar"><div class="skill-level" style="width:85%"></div></div></div>
+    <div class="hero-image">
+      <div class="image-container">
+        <img src="assets/profile.jpg" alt="Aymen Amimoussa Profile Picture">
       </div>
     </div>
+  </section>
 
-    <!-- Soft Skills -->
-    <div class="skills-category">
-      <h3>Soft Skills</h3>
-      <div class="skills-grid">
-        <div class="skill-item"><div class="skill-name">Problem Solving & Critical Thinking</div><div class="skill-bar"><div class="skill-level" style="width:95%"></div></div></div>
-        <div class="skill-item"><div class="skill-name">Adaptability & Continuous Learning</div><div class="skill-bar"><div class="skill-level" style="width:90%"></div></div></div>
-        <div class="skill-item"><div class="skill-name">Teamwork & Communication</div><div class="skill-bar"><div class="skill-level" style="width:88%"></div></div></div>
-        <div class="skill-item"><div class="skill-name">Efficiency & Time Management</div><div class="skill-bar"><div class="skill-level" style="width:85%"></div></div></div>
-        <div class="skill-item"><div class="skill-name">Business Planning & Strategic Thinking</div><div class="skill-bar"><div class="skill-level" style="width:80%"></div></div></div>
+  <!-- About -->
+  <section id="about" class="about container">
+    <div class="section-header">
+      <h2>About Me</h2><div class="underline"></div>
+    </div>
+    <div class="about-content">
+      <div class="about-text">
+        <p>I'm <strong>Aymen Amimoussa</strong> — a <strong>Machine Learning & Data Engineer</strong> passionate about building intelligent, data-driven systems. With a <strong>Master’s in Computer Science (Digital Factory 4.0)</strong> from <em>Eötvös Loránd University</em>, I specialize in machine learning, computer vision, and data engineering.</p>
+        <p>My experience spans <strong>developing deep learning models</strong> for vision and NLP, <strong>designing data pipelines</strong>, and deploying real-time AI solutions. I enjoy solving complex challenges with efficiency, innovation, and teamwork.</p>
+        <p>I’m currently seeking opportunities as a <strong>Machine Learning Engineer</strong> or <strong>Data Engineer</strong>, where I can contribute to impactful AI-driven systems and continue growing technically and professionally.</p>
+
+        <div class="personal-info">
+          <div class="info-item"><span class="info-title">Name:</span><span class="info-detail">Aymen Amimoussa</span></div>
+          <div class="info-item"><span class="info-title">Location:</span><span class="info-detail">Budapest, Hungary</span></div>
+          <div class="info-item"><span class="info-title">Email:</span><span class="info-detail"><a href="mailto:amimoussaaymen@gmail.com">amimoussaaymen@gmail.com</a></span></div>
+          <div class="info-item"><span class="info-title">Phone:</span><span class="info-detail">(+36) 708824751</span></div>
+          <div class="info-item"><span class="info-title">LinkedIn:</span><span class="info-detail"><a href="https://www.linkedin.com/in/amimoussaaymen" target="_blank">amimoussaaymen</a></span></div>
+          <div class="info-item"><span class="info-title">Languages:</span><span class="info-detail">Arabic (Native), English (C2), French (B2), Hungarian (A1)</span></div>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-
-    <section id="contact" class="contact">
-        <div class="section-header">
-            <h2>Contact Me</h2>
-            <div class="underline"></div>
+  <!-- Education -->
+  <section id="education" class="education container">
+    <div class="section-header"><h2>Education</h2><div class="underline"></div></div>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <h3>Master’s Degree — Computer Science (Digital Factory 4.0)</h3>
+          <h4>Eötvös Loránd University, Budapest</h4>
+          <p class="timeline-date">2023 — 2025</p>
+          <p>Thesis: <em>Process Monitoring in Case of Image Processing – CNC Machine</em></p>
         </div>
-        <div class="contact-content">
-            <div class="contact-info">
-                <div class="contact-item">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <div>
-                        <h3>Location</h3>
-                        <p>Budapest, Bekecs u. 102, 1162 Budapest, Hungary</p>
-                    </div>
-                </div>
-                <div class="contact-item">
-                    <i class="fas fa-envelope"></i>
-                    <div>
-                        <h3>Email</h3>
-                        <p>amimoussaaymen@gmail.com</p>
-                        <p>efg4ex@inf.elte.hu</p>
-                    </div>
-                </div>
-                <div class="contact-item">
-                    <i class="fas fa-phone"></i>
-                    <div>
-                        <h3>Phone</h3>
-                        <p>(+36) 708824751</p>
-                    </div>
-                </div>
-                <div class="contact-social">
-                    <h3>Connect With Me</h3>
-                    <div class="social-icons">
-                        <a href="https://www.linkedin.com/in/amimoussaaymen/" target="_blank"><i class="fab fa-linkedin"></i></a>
-                        <a href="https://github.com/AmimoussamohammedAymen" target="_blank"><i class="fab fa-github"></i></a>
-                        <a href="mailto:amimoussaaymen@gmail.com"><i class="fas fa-envelope"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="contact-form">
-                <form id="contactForm">
-                    <div class="form-group">
-                        <input type="text" id="name" name="name" placeholder="Your Name" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="email" id="email" name="email" placeholder="Your Email" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="text" id="subject" name="subject" placeholder="Subject" required>
-                    </div>
-                    <div class="form-group">
-                        <textarea id="message" name="message" placeholder="Your Message" required></textarea>
-                    </div>
-                    <button type="submit" class="btn primary-btn">Send Message</button>
-                </form>
-            </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <h3>Bachelor’s Degree — Mathematics & Computing</h3>
+          <h4>Kasdi Merbah University, Ouargla</h4>
+          <p class="timeline-date">2020 — 2023</p>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <footer class="footer">
-        <div class="footer-content">
-            <p>&copy; 2025 Aymen Amimoussa. All Rights Reserved.</p>
-            <div class="social-icons">
-                <a href="https://www.linkedin.com/in/amimoussaaymen/" target="_blank"><i class="fab fa-linkedin"></i></a>
-                <a href="https://github.com/AmimoussamohammedAymen" target="_blank"><i class="fab fa-github"></i></a>
-                <a href="mailto:amimoussaaymen@gmail.com"><i class="fas fa-envelope"></i></a>
-            </div>
+  <!-- Experience -->
+  <section id="experience" class="experience container">
+    <div class="section-header"><h2>Experience</h2><div class="underline"></div></div>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <h3>AI Software Developer</h3>
+          <h4>msg Plaut Hungary — Budapest</h4>
+          <p class="timeline-date">Jun 2024 – Sep 2024</p>
+          <ul>
+            <li>Developed AI models for image & video recognition and autonomous systems.</li>
+            <li>Integrated AI into embedded hardware systems for industrial applications.</li>
+            <li>Managed data preprocessing, analysis, and performance validation pipelines.</li>
+          </ul>
         </div>
-    </footer>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <h3>Database Administrator Intern</h3>
+          <h4>Directorate Province of Ouargla City</h4>
+          <p class="timeline-date">Feb 2023 – Mar 2023</p>
+          <ul><li>Performed database optimization, monitoring, and recovery operations.</li></ul>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <h3>Database Administrator Intern</h3>
+          <h4>Mother and Child Maternity Hospital — Ouargla</h4>
+          <p class="timeline-date">Mar 2022 – May 2022</p>
+          <ul><li>Supported data management, backups, and query optimization tasks.</li></ul>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <script src="script.js"></script>
+  <!-- Projects -->
+  <section id="projects" class="projects container">
+    <div class="section-header"><h2>Projects</h2><div class="underline"></div></div>
+    <div class="projects-filter">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="ai-ml">AI/ML</button>
+      <button class="filter-btn" data-filter="computer-vision">Computer Vision</button>
+      <button class="filter-btn" data-filter="nlp">NLP</button>
+    </div>
+    <div class="projects-grid">
+      <!-- Add the project cards from previous version here (same as last message) -->
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section id="skills" class="skills container">
+    <div class="section-header"><h2>Skills</h2><div class="underline"></div></div>
+    <div class="skills-content">
+      <div class="skills-category">
+        <h3>Technical Skills</h3>
+        <div class="skills-grid">
+          <div class="skill-item"><div class="skill-name">Python / R / Java / C</div><div class="skill-bar"><div class="skill-level" style="width:95%"></div></div></div>
+          <div class="skill-item"><div class="skill-name">Machine Learning & Deep Learning</div><div class="skill-bar"><div class="skill-level" style="width:90%"></div></div></div>
+          <div class="skill-item"><div class="skill-name">PyTorch / TensorFlow / Scikit-learn / Keras</div><div class="skill-bar"><div class="skill-level" style="width:88%"></div></div></div>
+          <div class="skill-item"><div class="skill-name">Computer Vision (YOLO, U-Net, segmentation, tracking)</div><div class="skill-bar"><div class="skill-level" style="width:92%"></div></div></div>
+          <div class="skill-item"><div class="skill-name">Data Engineering (ETL, Pipelines, Pandas, SQL)</div><div class="skill-bar"><div class="skill-level" style="width:85%"></div></div></div>
+          <div class="skill-item"><div class="skill-name">Natural Language Processing (Transformers, SpaCy, NLTK)</div><div class="skill-bar"><div class="skill-level" style="width:82%"></div></div></div>
+          <div class="skill-item"><div class="skill-name">Advanced Driver Assistance Systems (ADAS)</div><div class="skill-bar"><div class="skill-level" style="width:75%"></div></div></div>
+          <div class="skill-item"><div class="skill-name">Database Design & SQL Optimization</div><div class="skill-bar"><div class="skill-level" style="width:85%"></div></div></div>
+        </div>
+      </div>
+
+      <div class="skills-category">
+        <h3>Soft Skills</h3>
+        <div class="skills-grid">
+          <div class="skill-item"><div class="skill-name">Problem Solving & Critical Thinking</div><div class="skill-bar"><div class="skill-level" style="width:95%"></div></div></div>
+          <div class="skill-item"><div class="skill-name">Adaptability & Continuous Learning</div><div class="skill-bar"><div class="skill-level" style="width:90%"></div></div></div>
+          <div class="skill-item"><div class="skill-name">Teamwork & Communication</div><div class="skill-bar"><div class="skill-level" style="width:88%"></div></div></div>
+          <div class="skill-item"><div class="skill-name">Efficiency & Time Management</div><div class="skill-bar"><div class="skill-level" style="width:85%"></div></div></div>
+          <div class="skill-item"><div class="skill-name">Business Planning & Strategic Thinking</div><div class="skill-bar"><div class="skill-level" style="width:80%"></div></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Certifications -->
+  <section id="certifications" class="education container">
+    <div class="section-header"><h2>Certifications</h2><div class="underline"></div></div>
+    <div class="timeline">
+      <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-content"><h3>Fundamentals of Deep Learning</h3><h4>NVIDIA Workshop</h4></div></div>
+      <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-content"><h3>Introduction to Data and Data Science</h3><h4>365 Data Science</h4></div></div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="contact container">
+    <div class="section-header"><h2>Contact Me</h2><div class="underline"></div></div>
+    <div class="contact-content">
+      <div class="contact-info">
+        <div class="contact-item"><i class="fas fa-map-marker-alt"></i><p>Budapest, Hungary</p></div>
+        <div class="contact-item"><i class="fas fa-envelope"></i><p><a href="mailto:amimoussaaymen@gmail.com">amimoussaaymen@gmail.com</a></p></div>
+        <div class="contact-item"><i class="fas fa-phone"></i><p>(+36) 708824751</p></div>
+      </div>
+      <form id="contactForm">
+        <input type="text" id="name" placeholder="Name" required>
+        <input type="email" id="email" placeholder="Email" required>
+        <input type="text" id="subject" placeholder="Subject" required>
+        <textarea id="message" placeholder="Message" required></textarea>
+        <button type="submit" class="btn primary-btn">Send Message</button>
+      </form>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p>&copy; 2025 Aymen Amimoussa — Machine Learning & Data Engineer</p>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
