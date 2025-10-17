@@ -95,45 +95,45 @@ filterBtns.forEach(btn => {
 
 
 // --------- Contact form (example using fetch) ----------
+// --------- Contact Form Submission ----------
 if (contactForm) {
   contactForm.addEventListener('submit', async (e) => {
     e.preventDefault();
     const formStatus = document.getElementById('formStatus');
+    formStatus.textContent = 'Sending...';
+
     const data = {
       name: contactForm.name.value.trim(),
       email: contactForm.email.value.trim(),
       subject: contactForm.subject.value.trim(),
       message: contactForm.message.value.trim()
     };
+
     if (!data.name || !data.email || !data.subject || !data.message) {
       formStatus.textContent = 'Please fill in all fields.';
       return;
     }
 
-    // Example: Replace the URL with your Formspree endpoint or backend URL
-    const endpoint = 'https://formspree.io/f/your-form-id'; // <-- change this
-
     try {
-      formStatus.textContent = 'Sending…';
-      const res = await fetch(endpoint, {
+      // Replace this with your own Formspree or backend endpoint
+      const response = await fetch('https://formspree.io/f/your-form-id', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data)
       });
-      if (res.ok) {
-        formStatus.textContent = 'Thanks — your message was sent.';
+
+      if (response.ok) {
+        formStatus.textContent = '✅ Thank you! Your message has been sent.';
         contactForm.reset();
       } else {
-        const text = await res.text();
-        formStatus.textContent = 'There was an error sending the message.';
-        console.warn('Form error', res.status, text);
+        formStatus.textContent = '⚠️ Something went wrong. Please try again.';
       }
-    } catch (err) {
-      formStatus.textContent = 'There was an error sending the message.';
-      console.error(err);
+    } catch (error) {
+      formStatus.textContent = '❌ Error sending message.';
     }
   });
 }
+
 
 
 // --------- Typewriter effect ----------
