@@ -1,222 +1,151 @@
-/* script.js — polished interactivity + accessibility + small performance upgrades */
-
 (() => {
-  const $ = (sel, root = document) => root.querySelector(sel);
-  const $$ = (sel, root = document) => Array.from(root.querySelectorAll(sel));
+  const $ = (s, r=document) => r.querySelector(s);
+  const $$ = (s, r=document) => Array.from(r.querySelectorAll(s));
 
   const burger = $('.burger');
   const nav = $('.nav-links');
-  const navLinks = $$('.nav-links a');
-  const navbar = $('.navbar');
   const themeToggle = $('.theme-toggle');
   const filterBtns = $$('.filter-btn');
   const projectCards = $$('.project-card');
+  const typewriterEl = $('#typewriter-text');
   const contactForm = $('#contactForm');
-  const typewriterElement = $('#typewriter-text');
   const yearEl = $('#year');
 
-  // ---------- Footer year ----------
   if (yearEl) yearEl.textContent = String(new Date().getFullYear());
 
-  // ---------- Burger / Mobile Nav ----------
-  function closeMobileNav() {
+  // ---------------- Mobile nav ----------------
+  const closeNav = () => {
     if (!nav || !burger) return;
     nav.classList.remove('active');
-    burger.classList.remove('active');
     burger.setAttribute('aria-expanded', 'false');
-  }
+  };
 
   if (burger && nav) {
     burger.addEventListener('click', () => {
       const expanded = burger.getAttribute('aria-expanded') === 'true';
       burger.setAttribute('aria-expanded', String(!expanded));
       nav.classList.toggle('active');
-      burger.classList.toggle('active');
     });
 
-    // Close on ESC for accessibility
     document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') closeMobileNav();
+      if (e.key === 'Escape') closeNav();
+    });
+
+    // close nav after clicking a link
+    $$('.nav-links a').forEach(a => {
+      a.addEventListener('click', () => closeNav());
     });
   }
 
-  // ---------- Navbar scroll effect (throttled via rAF) ----------
-  let ticking = false;
-  window.addEventListener('scroll', () => {
-    if (!navbar) return;
-    if (!ticking) {
-      window.requestAnimationFrame(() => {
-        navbar.classList.toggle('scrolled', window.scrollY > 80);
-        ticking = false;
-      });
-      ticking = true;
+  // ---------------- Theme ----------------
+  function setTheme(mode){
+    // mode: "dark" or "light"
+    document.body.classList.toggle('light', mode === 'light');
+    if (themeToggle){
+      themeToggle.innerHTML = mode === 'light'
+        ? '<i class="fas fa-moon"></i>'
+        : '<i class="fas fa-sun"></i>';
+      themeToggle.setAttribute('aria-pressed', String(mode !== 'light'));
+      themeToggle.title = mode === 'light' ? 'Switch to dark mode' : 'Switch to light mode';
     }
-  }, { passive: true });
-
-  // ---------- Theme toggle with persistence ----------
-  function setTheme(theme) {
-    const isDark = theme === 'dark';
-    document.body.classList.toggle('dark-mode', isDark);
-    if (themeToggle) {
-      themeToggle.innerHTML = isDark ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
-      themeToggle.setAttribute('aria-pressed', String(isDark));
-      themeToggle.setAttribute('title', isDark ? 'Switch to light mode' : 'Switch to dark mode');
-    }
-    try { localStorage.setItem('theme', theme); } catch (e) {}
+    try{ localStorage.setItem('theme', mode); }catch(e){}
   }
 
-  if (themeToggle) {
+  const saved = (() => {
+    try { return localStorage.getItem('theme'); } catch(e){ return null; }
+  })();
+
+  if (saved) setTheme(saved);
+  else setTheme('dark');
+
+  if (themeToggle){
     themeToggle.addEventListener('click', () => {
-      const isDark = document.body.classList.contains('dark-mode');
-      setTheme(isDark ? 'light' : 'dark');
+      const isLight = document.body.classList.contains('light');
+      setTheme(isLight ? 'dark' : 'light');
     });
   }
 
-  // Apply saved theme
-  try {
-    const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-    const saved = localStorage.getItem('theme') || (prefersDark ? 'dark' : 'light');
-    setTheme(saved);
-  } catch (e) {
-    setTheme('light');
-  }
-
-  // ---------- Active nav link on scroll ----------
-  const sections = $$('main section[id]');
-  function onScrollActiveLink() {
-    let current = '';
-    const offset = 140;
-    const scrollPos = window.scrollY;
-
-    for (const section of sections) {
-      const top = section.offsetTop - offset;
-      if (scrollPos >= top) current = section.id;
-    }
-
-    navLinks.forEach(a => {
-      a.classList.toggle('active', a.getAttribute('href') === `#${current}`);
-    });
-  }
-  window.addEventListener('scroll', onScrollActiveLink, { passive: true });
-  window.addEventListener('resize', onScrollActiveLink);
-  onScrollActiveLink();
-
-  // ---------- Smooth anchor scrolling ----------
-  $$('a[href^="#"]').forEach(a => {
-    a.addEventListener('click', (e) => {
-      const href = a.getAttribute('href');
-      if (!href || href.length === 1) return;
-      const target = $(href);
-      if (!target) return;
-
-      e.preventDefault();
-      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      closeMobileNav();
-    });
-  });
-
-  // ---------- Project filtering ----------
+  // ---------------- Project filter ----------------
   if (filterBtns.length && projectCards.length) {
     filterBtns.forEach(btn => {
       btn.addEventListener('click', () => {
         filterBtns.forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
 
-        const filter = btn.dataset.filter || 'all';
+        const f = (btn.dataset.filter || 'all').toLowerCase();
         projectCards.forEach(card => {
           const cats = (card.dataset.category || '').toLowerCase();
-          const show = filter === 'all' || cats.includes(filter.toLowerCase());
+          const show = (f === 'all') || cats.includes(f);
           card.style.display = show ? 'block' : 'none';
         });
       });
     });
   }
 
-  // ---------- Contact form ----------
-  // IMPORTANT: replace the endpoint with your real Formspree ID or your backend endpoint.
+  // ---------------- Typewriter ----------------
+  const lines = [
+    'ADF • ADLS Gen2 • Databricks • Delta Lake',
+    'SQL (Windows, MERGE, SCD2) • Python',
+    'Incremental Loads • Quality Checks • Automation',
+    'Recruiter-ready projects with clean READMEs'
+  ];
+
+  let i = 0, j = 0, del = false;
+
+  function tick(){
+    if (!typewriterEl) return;
+    const current = lines[i];
+    typewriterEl.textContent = del ? current.slice(0, j--) : current.slice(0, j++);
+
+    let speed = del ? 28 : 65;
+
+    if (!del && j === current.length + 1) {
+      del = true; speed = 900;
+    }
+    if (del && j === 0) {
+      del = false; i = (i + 1) % lines.length; speed = 220;
+    }
+    setTimeout(tick, speed);
+  }
+  window.addEventListener('load', () => setTimeout(tick, 400));
+
+  // ---------------- Contact form ----------------
+  // Replace endpoint with your Formspree endpoint
   if (contactForm) {
     contactForm.addEventListener('submit', async (e) => {
       e.preventDefault();
-      const formStatus = $('#formStatus');
-      if (formStatus) formStatus.textContent = 'Sending...';
+      const status = $('#formStatus');
+      if (status) status.textContent = 'Sending...';
 
-      const data = {
-        name: contactForm.name?.value?.trim() || '',
-        email: contactForm.email?.value?.trim() || '',
-        subject: contactForm.subject?.value?.trim() || '',
-        message: contactForm.message?.value?.trim() || ''
+      const payload = {
+        name: contactForm.name.value.trim(),
+        email: contactForm.email.value.trim(),
+        subject: contactForm.subject.value.trim(),
+        message: contactForm.message.value.trim()
       };
 
-      if (!data.name || !data.email || !data.subject || !data.message) {
-        if (formStatus) formStatus.textContent = 'Please fill in all fields.';
+      if (!payload.name || !payload.email || !payload.subject || !payload.message) {
+        if (status) status.textContent = 'Please fill in all fields.';
         return;
       }
 
       try {
         const endpoint = 'https://formspree.io/f/your-form-id'; // <-- change this
-        const response = await fetch(endpoint, {
+        const res = await fetch(endpoint, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-          body: JSON.stringify(data)
+          body: JSON.stringify(payload)
         });
 
-        if (response.ok) {
-          if (formStatus) formStatus.textContent = '✅ Thank you! Your message has been sent.';
+        if (res.ok) {
+          if (status) status.textContent = '✅ Sent! I will reply as soon as possible.';
           contactForm.reset();
         } else {
-          if (formStatus) formStatus.textContent = '⚠️ Something went wrong. Please try again.';
+          if (status) status.textContent = '⚠️ Something went wrong. Try again.';
         }
-      } catch (error) {
-        if (formStatus) formStatus.textContent = '❌ Error sending message.';
+      } catch (err) {
+        if (status) status.textContent = '❌ Network error. Please try again.';
       }
     });
-  }
-
-  // ---------- Typewriter effect ----------
-  // Matches your new positioning as Data Engineer (Azure)
-  const texts = [
-    'Data Engineer (Azure • SQL • Python)',
-    'ADF • ADLS Gen2 • Databricks • Delta Lake',
-    'Incremental Loads • MERGE Upserts • SCD Type 2',
-    'Building production-style lakehouse pipelines'
-  ];
-
-  let tIndex = 0, cIndex = 0, deleting = false;
-
-  function typeWriter() {
-    if (!typewriterElement) return;
-    const current = texts[tIndex];
-
-    if (deleting) {
-      cIndex = Math.max(0, cIndex - 1);
-    } else {
-      cIndex = Math.min(current.length, cIndex + 1);
-    }
-
-    typewriterElement.textContent = current.substring(0, cIndex);
-
-    let delay = deleting ? 35 : 80;
-    if (!deleting && cIndex === current.length) { delay = 1400; deleting = true; }
-    if (deleting && cIndex === 0) { deleting = false; tIndex = (tIndex + 1) % texts.length; delay = 350; }
-
-    setTimeout(typeWriter, delay);
-  }
-  window.addEventListener('load', () => setTimeout(typeWriter, 500));
-
-  // ---------- Appear on scroll (skip if reduced motion) ----------
-  const prefersReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (!prefersReducedMotion && 'IntersectionObserver' in window) {
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) entry.target.classList.add('appear');
-      });
-    }, { threshold: 0.15 });
-
-    $$('section').forEach(s => {
-      s.classList.add('will-appear');
-      io.observe(s);
-    });
-  } else {
-    $$('section').forEach(s => s.classList.add('appear'));
   }
 })();
