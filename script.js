@@ -1,191 +1,222 @@
-// Improved interactivity, accessibility and small performance tweaks
+/* script.js — polished interactivity + accessibility + small performance upgrades */
 
-const burger = document.querySelector('.burger');
-const nav = document.querySelector('.nav-links');
-const navLinks = document.querySelectorAll('.nav-links li a');
-const navbar = document.querySelector('.navbar');
-const themeToggle = document.querySelector('.theme-toggle');
-const filterBtns = document.querySelectorAll('.filter-btn');
-const projectCards = document.querySelectorAll('.project-card');
-const contactForm = document.getElementById('contactForm');
-const typewriterElement = document.getElementById('typewriter-text');
+(() => {
+  const $ = (sel, root = document) => root.querySelector(sel);
+  const $$ = (sel, root = document) => Array.from(root.querySelectorAll(sel));
 
+  const burger = $('.burger');
+  const nav = $('.nav-links');
+  const navLinks = $$('.nav-links a');
+  const navbar = $('.navbar');
+  const themeToggle = $('.theme-toggle');
+  const filterBtns = $$('.filter-btn');
+  const projectCards = $$('.project-card');
+  const contactForm = $('#contactForm');
+  const typewriterElement = $('#typewriter-text');
+  const yearEl = $('#year');
 
-// --------- Burger / Mobile Nav ----------
-if (burger) {
-  burger.addEventListener('click', () => {
-    const expanded = burger.getAttribute('aria-expanded') === 'true';
-    burger.setAttribute('aria-expanded', String(!expanded));
-    nav.classList.toggle('active');
-    burger.classList.toggle('active');
-  });
-}
+  // ---------- Footer year ----------
+  if (yearEl) yearEl.textContent = String(new Date().getFullYear());
 
-// --------- Navbar scroll effect ----------
-window.addEventListener('scroll', () => {
-  if (window.scrollY > 80) {
-    navbar.classList.add('scrolled');
-  } else {
-    navbar.classList.remove('scrolled');
+  // ---------- Burger / Mobile Nav ----------
+  function closeMobileNav() {
+    if (!nav || !burger) return;
+    nav.classList.remove('active');
+    burger.classList.remove('active');
+    burger.setAttribute('aria-expanded', 'false');
   }
-});
 
-// --------- Theme toggle with persistence ----------
-function setTheme(theme) {
-  if (theme === 'dark') {
-    document.body.classList.add('dark-mode');
-    themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
-    themeToggle.setAttribute('aria-pressed', 'true');
-  } else {
-    document.body.classList.remove('dark-mode');
-    themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
-    themeToggle.setAttribute('aria-pressed', 'false');
+  if (burger && nav) {
+    burger.addEventListener('click', () => {
+      const expanded = burger.getAttribute('aria-expanded') === 'true';
+      burger.setAttribute('aria-expanded', String(!expanded));
+      nav.classList.toggle('active');
+      burger.classList.toggle('active');
+    });
+
+    // Close on ESC for accessibility
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeMobileNav();
+    });
   }
-  try { localStorage.setItem('theme', theme); } catch(e){}
-}
 
-themeToggle.addEventListener('click', () => {
-  const isDark = document.body.classList.contains('dark-mode');
-  setTheme(isDark ? 'light' : 'dark');
-});
-
-// Apply saved theme
-try {
-  const saved = localStorage.getItem('theme') || (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-  setTheme(saved);
-} catch(e){ setTheme('light'); }
-
-
-// --------- Active nav link on scroll ----------
-const sections = document.querySelectorAll('main section[id]');
-function onScrollActiveLink() {
-  let current = '';
-  sections.forEach(section => {
-    const top = section.offsetTop - 120;
-    if (window.pageYOffset >= top) {
-      current = section.getAttribute('id');
+  // ---------- Navbar scroll effect (throttled via rAF) ----------
+  let ticking = false;
+  window.addEventListener('scroll', () => {
+    if (!navbar) return;
+    if (!ticking) {
+      window.requestAnimationFrame(() => {
+        navbar.classList.toggle('scrolled', window.scrollY > 80);
+        ticking = false;
+      });
+      ticking = true;
     }
-  });
-  navLinks.forEach(a => {
-    a.classList.remove('active');
-    if (a.getAttribute('href').substring(1) === current) a.classList.add('active');
-  });
-}
-window.addEventListener('scroll', onScrollActiveLink);
-window.addEventListener('resize', onScrollActiveLink);
-onScrollActiveLink();
+  }, { passive: true });
 
+  // ---------- Theme toggle with persistence ----------
+  function setTheme(theme) {
+    const isDark = theme === 'dark';
+    document.body.classList.toggle('dark-mode', isDark);
+    if (themeToggle) {
+      themeToggle.innerHTML = isDark ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
+      themeToggle.setAttribute('aria-pressed', String(isDark));
+      themeToggle.setAttribute('title', isDark ? 'Switch to light mode' : 'Switch to dark mode');
+    }
+    try { localStorage.setItem('theme', theme); } catch (e) {}
+  }
 
-// --------- Project filtering ----------
-filterBtns.forEach(btn => {
-  btn.addEventListener('click', () => {
-    filterBtns.forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    const filter = btn.dataset.filter;
-    projectCards.forEach(card => {
-      const cats = card.dataset.category;
-      if (filter === 'all' || cats.includes(filter)) {
-        card.style.display = 'block';
-      } else {
-        card.style.display = 'none';
-      }
+  if (themeToggle) {
+    themeToggle.addEventListener('click', () => {
+      const isDark = document.body.classList.contains('dark-mode');
+      setTheme(isDark ? 'light' : 'dark');
+    });
+  }
+
+  // Apply saved theme
+  try {
+    const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const saved = localStorage.getItem('theme') || (prefersDark ? 'dark' : 'light');
+    setTheme(saved);
+  } catch (e) {
+    setTheme('light');
+  }
+
+  // ---------- Active nav link on scroll ----------
+  const sections = $$('main section[id]');
+  function onScrollActiveLink() {
+    let current = '';
+    const offset = 140;
+    const scrollPos = window.scrollY;
+
+    for (const section of sections) {
+      const top = section.offsetTop - offset;
+      if (scrollPos >= top) current = section.id;
+    }
+
+    navLinks.forEach(a => {
+      a.classList.toggle('active', a.getAttribute('href') === `#${current}`);
+    });
+  }
+  window.addEventListener('scroll', onScrollActiveLink, { passive: true });
+  window.addEventListener('resize', onScrollActiveLink);
+  onScrollActiveLink();
+
+  // ---------- Smooth anchor scrolling ----------
+  $$('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', (e) => {
+      const href = a.getAttribute('href');
+      if (!href || href.length === 1) return;
+      const target = $(href);
+      if (!target) return;
+
+      e.preventDefault();
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      closeMobileNav();
     });
   });
-});
 
+  // ---------- Project filtering ----------
+  if (filterBtns.length && projectCards.length) {
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
 
-// --------- Contact form (example using fetch) ----------
-// --------- Contact Form Submission ----------
-if (contactForm) {
-  contactForm.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    const formStatus = document.getElementById('formStatus');
-    formStatus.textContent = 'Sending...';
-
-    const data = {
-      name: contactForm.name.value.trim(),
-      email: contactForm.email.value.trim(),
-      subject: contactForm.subject.value.trim(),
-      message: contactForm.message.value.trim()
-    };
-
-    if (!data.name || !data.email || !data.subject || !data.message) {
-      formStatus.textContent = 'Please fill in all fields.';
-      return;
-    }
-
-    try {
-      // Replace this with your own Formspree or backend endpoint
-      const response = await fetch('https://formspree.io/f/your-form-id', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data)
+        const filter = btn.dataset.filter || 'all';
+        projectCards.forEach(card => {
+          const cats = (card.dataset.category || '').toLowerCase();
+          const show = filter === 'all' || cats.includes(filter.toLowerCase());
+          card.style.display = show ? 'block' : 'none';
+        });
       });
-
-      if (response.ok) {
-        formStatus.textContent = '✅ Thank you! Your message has been sent.';
-        contactForm.reset();
-      } else {
-        formStatus.textContent = '⚠️ Something went wrong. Please try again.';
-      }
-    } catch (error) {
-      formStatus.textContent = '❌ Error sending message.';
-    }
-  });
-}
-
-
-
-// --------- Typewriter effect ----------
-const texts = [
-  'Machine Learning & Data Engineer',
-  'Computer Vision Specialist',
-  'NLP & Signal Processing',
-  'MSc — Digital Factory 4.0'
-];
-let tIndex = 0, cIndex = 0, deleting = false;
-function typeWriter() {
-  if (!typewriterElement) return;
-  const current = texts[tIndex];
-  if (deleting) {
-    cIndex = Math.max(0, cIndex - 1);
-    typewriterElement.textContent = current.substring(0, cIndex);
-  } else {
-    cIndex = Math.min(current.length, cIndex + 1);
-    typewriterElement.textContent = current.substring(0, cIndex);
+    });
   }
 
-  let delay = deleting ? 40 : 100;
-  if (!deleting && cIndex === current.length) { delay = 1800; deleting = true; }
-  if (deleting && cIndex === 0) { deleting = false; tIndex = (tIndex + 1) % texts.length; delay = 500; }
+  // ---------- Contact form ----------
+  // IMPORTANT: replace the endpoint with your real Formspree ID or your backend endpoint.
+  if (contactForm) {
+    contactForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const formStatus = $('#formStatus');
+      if (formStatus) formStatus.textContent = 'Sending...';
 
-  setTimeout(typeWriter, delay);
-}
-window.addEventListener('load', () => { setTimeout(typeWriter, 600); });
+      const data = {
+        name: contactForm.name?.value?.trim() || '',
+        email: contactForm.email?.value?.trim() || '',
+        subject: contactForm.subject?.value?.trim() || '',
+        message: contactForm.message?.value?.trim() || ''
+      };
 
+      if (!data.name || !data.email || !data.subject || !data.message) {
+        if (formStatus) formStatus.textContent = 'Please fill in all fields.';
+        return;
+      }
 
-// --------- Smooth anchor scrolling (better accessibility) ----------
-document.querySelectorAll('a[href^="#"]').forEach(a => {
-  a.addEventListener('click', function(e) {
-    const href = this.getAttribute('href');
-    if (href.length === 1) return;
-    e.preventDefault();
-    const target = document.querySelector(href);
-    if (!target) return;
-    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    // close nav if mobile
-    if (nav.classList.contains('active')) {
-      nav.classList.remove('active'); burger.classList.remove('active');
+      try {
+        const endpoint = 'https://formspree.io/f/your-form-id'; // <-- change this
+        const response = await fetch(endpoint, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify(data)
+        });
+
+        if (response.ok) {
+          if (formStatus) formStatus.textContent = '✅ Thank you! Your message has been sent.';
+          contactForm.reset();
+        } else {
+          if (formStatus) formStatus.textContent = '⚠️ Something went wrong. Please try again.';
+        }
+      } catch (error) {
+        if (formStatus) formStatus.textContent = '❌ Error sending message.';
+      }
+    });
+  }
+
+  // ---------- Typewriter effect ----------
+  // Matches your new positioning as Data Engineer (Azure)
+  const texts = [
+    'Data Engineer (Azure • SQL • Python)',
+    'ADF • ADLS Gen2 • Databricks • Delta Lake',
+    'Incremental Loads • MERGE Upserts • SCD Type 2',
+    'Building production-style lakehouse pipelines'
+  ];
+
+  let tIndex = 0, cIndex = 0, deleting = false;
+
+  function typeWriter() {
+    if (!typewriterElement) return;
+    const current = texts[tIndex];
+
+    if (deleting) {
+      cIndex = Math.max(0, cIndex - 1);
+    } else {
+      cIndex = Math.min(current.length, cIndex + 1);
     }
-  });
-});
 
+    typewriterElement.textContent = current.substring(0, cIndex);
 
-// --------- Appear on scroll ----------
-const io = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) entry.target.classList.add('appear');
-  });
-}, { threshold: 0.15 });
-document.querySelectorAll('section').forEach(s => io.observe(s));
+    let delay = deleting ? 35 : 80;
+    if (!deleting && cIndex === current.length) { delay = 1400; deleting = true; }
+    if (deleting && cIndex === 0) { deleting = false; tIndex = (tIndex + 1) % texts.length; delay = 350; }
 
+    setTimeout(typeWriter, delay);
+  }
+  window.addEventListener('load', () => setTimeout(typeWriter, 500));
+
+  // ---------- Appear on scroll (skip if reduced motion) ----------
+  const prefersReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (!prefersReducedMotion && 'IntersectionObserver' in window) {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('appear');
+      });
+    }, { threshold: 0.15 });
+
+    $$('section').forEach(s => {
+      s.classList.add('will-appear');
+      io.observe(s);
+    });
+  } else {
+    $$('section').forEach(s => s.classList.add('appear'));
+  }
+})();
