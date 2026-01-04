@@ -1,613 +1,603 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="theme-color" content="#0b1220" />
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
-  <title>Aymen Amimoussa — Data Engineer (Azure • SQL • Python)</title>
-  <meta
-    name="description"
-    content="Aymen Amimoussa — Data Engineer focused on Azure (ADF, ADLS Gen2, Databricks, Delta Lake), SQL, and Python. Building production-style pipelines: lakehouse (bronze/silver/gold), incremental loads, SCD2, CI/CD."
-  />
+  <title>Aymen Amimoussa — Data Engineer (Azure) | SQL • Python • Lakehouse</title>
+  <meta name="description" content="Aymen Amimoussa — Data Engineer (Azure) building production-style data pipelines with ADF, ADLS Gen2, Databricks & Delta Lake. Strong SQL/Python + ML/Computer Vision background."/>
 
-  <!-- Open Graph -->
-  <meta property="og:title" content="Aymen Amimoussa — Data Engineer (Azure • SQL • Python)" />
-  <meta property="og:description" content="Azure Data Engineering portfolio: lakehouse pipelines, incremental loads, SCD2, CI/CD. Open to relocation & visa sponsorship in the EU." />
-  <meta property="og:type" content="website" />
-  <meta property="og:image" content="assets/og-cover.png" />
-  <meta property="og:url" content="https://amimoussamohammedaymen.github.io/" />
+  <meta property="og:title" content="Aymen Amimoussa — Data Engineer (Azure)"/>
+  <meta property="og:description" content="ADF • ADLS Gen2 • Databricks • Delta Lake • SQL • Python — production-style pipelines and lakehouse projects."/>
+  <meta property="og:type" content="website"/>
 
-  <!-- Twitter -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Aymen Amimoussa — Data Engineer" />
-  <meta name="twitter:description" content="Azure Data Engineering portfolio: lakehouse pipelines, incremental loads, SCD2, CI/CD." />
-  <meta name="twitter:image" content="assets/og-cover.png" />
+  <link rel="icon" href="assets/favicon.png"/>
+  <link rel="stylesheet" href="style.css"/>
 
-  <!-- Canonical (optional) -->
-  <link rel="canonical" href="https://amimoussamohammedaymen.github.io/" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
 
-  <link rel="stylesheet" href="style.css" />
-  <link rel="icon" href="assets/favicon.png" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
-    rel="stylesheet"
-  />
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    referrerpolicy="no-referrer"
-  />
-
-  <!-- JSON-LD (SEO) -->
   <script type="application/ld+json">
   {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Aymen Amimoussa",
-    "jobTitle": "Data Engineer",
-    "url": "https://amimoussamohammedaymen.github.io/",
-    "sameAs": [
+    "@context":"https://schema.org",
+    "@type":"Person",
+    "name":"Aymen Amimoussa",
+    "jobTitle":"Data Engineer (Azure)",
+    "url":"https://amimoussamohammedaymen.github.io/",
+    "sameAs":[
       "https://www.linkedin.com/in/amimoussaaymen",
       "https://github.com/AmimoussamohammedAymen"
-    ],
-    "email": "mailto:amimoussaaymen@gmail.com",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Lyon",
-      "addressCountry": "FR"
-    }
+    ]
   }
   </script>
 </head>
 
 <body>
-  <!-- Skip link for accessibility -->
   <a class="skip-link" href="#main">Skip to content</a>
 
-  <!-- Navbar -->
-  <nav class="navbar" role="navigation" aria-label="Primary">
-    <div class="logo" aria-label="Home">
-      <a href="#home"><span>A</span>ymen</a>
-    </div>
+  <!-- NAV -->
+  <header class="site-header">
+    <nav class="navbar">
+      <div class="logo">
+        <a href="#home" aria-label="Go to Home"><span>A</span>ymen</a>
+      </div>
 
-    <button class="burger" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navMenu">
-      <span></span><span></span><span></span>
-    </button>
+      <button class="burger" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
 
-    <ul id="navMenu" class="nav-links">
-      <li><a href="#home" class="active">Home</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#featured">Featured</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#experience">Experience</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#certifications">Certifications</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
+      <ul class="nav-links" role="list">
+        <li><a href="#featured">Featured</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a class="nav-cta" href="#contact">Contact</a></li>
+      </ul>
 
-    <button class="theme-toggle" aria-label="Toggle theme" title="Toggle theme">
-      <i class="fas fa-moon"></i>
-    </button>
-  </nav>
+      <button class="theme-toggle" aria-label="Toggle theme" aria-pressed="false" title="Toggle theme">
+        <i class="fas fa-moon"></i>
+      </button>
+    </nav>
+  </header>
 
   <main id="main">
-    <!-- Hero -->
+
+    <!-- HERO -->
     <section id="home" class="hero">
-      <div class="hero-content container">
-        <p class="kicker">Azure Data Engineering • SQL • Python</p>
-
-        <h1>
-          Hello, I’m <span class="highlight">Aymen Amimoussa</span>
-        </h1>
-
-        <p class="lead">
-          Data Engineer building reliable, production-style pipelines on Azure:
-          <strong>ADF</strong>, <strong>ADLS Gen2</strong>, <strong>Databricks</strong>, <strong>Delta Lake</strong>.
-          I turn messy data into <strong>clean, queryable, documented</strong> datasets (bronze/silver/gold),
-          with <strong>incremental loads</strong>, <strong>SCD Type 2</strong>, and <strong>CI/CD</strong>.
-        </p>
-
-        <div class="hero-badges" aria-label="Quick highlights">
-          <span class="badge"><i class="fa-solid fa-cloud"></i> Azure Lakehouse</span>
-          <span class="badge"><i class="fa-solid fa-code-branch"></i> CI/CD</span>
-          <span class="badge"><i class="fa-solid fa-database"></i> SQL • Warehousing</span>
-          <span class="badge"><i class="fa-solid fa-bolt"></i> Incremental ETL</span>
-        </div>
-
-        <div class="hero-btns">
-          <a href="#contact" class="btn primary-btn">Contact</a>
-          <!-- Update the filename to your current CV -->
-          <a href="assets/Amimoussa_Mohammed_Aymen_Germany_DE.pdf" class="btn secondary-btn" target="_blank" rel="noopener">
-            Download CV
-          </a>
-          <a href="#projects" class="btn ghost-btn">View Projects</a>
-        </div>
-
-        <div class="meta-line">
-          <span><i class="fa-solid fa-location-dot"></i> Lyon, France</span>
-          <span class="dot">•</span>
-          <span><i class="fa-solid fa-plane"></i> Open to relocation (EU)</span>
-          <span class="dot">•</span>
-          <span><i class="fa-solid fa-id-card"></i> Visa sponsorship needed</span>
-        </div>
-
-        <div class="social-icons" aria-label="Social links">
-          <a href="https://www.linkedin.com/in/amimoussaaymen" target="_blank" rel="noopener" aria-label="LinkedIn">
-            <i class="fab fa-linkedin"></i>
-          </a>
-          <a href="https://github.com/AmimoussamohammedAymen" target="_blank" rel="noopener" aria-label="GitHub">
-            <i class="fab fa-github"></i>
-          </a>
-          <a href="mailto:amimoussaaymen@gmail.com" aria-label="Email">
-            <i class="fas fa-envelope"></i>
-          </a>
-        </div>
-      </div>
-
-      <div class="hero-image">
-        <div class="image-container">
-          <img src="assets/Amimoussa Aymen Laugh.jpg" alt="Aymen Amimoussa" loading="lazy" />
-        </div>
-      </div>
-    </section>
-
-    <!-- About -->
-    <section id="about" class="about container">
-      <div class="section-header">
-        <h2>About</h2>
-        <div class="underline"></div>
-      </div>
-
-      <div class="about-content">
-        <div class="about-text">
-          <p>
-            I’m <strong>Aymen Amimoussa</strong>, a <strong>Data Engineer</strong> with a Master’s in
-            <strong>Computer Science (Digital Factory 4.0)</strong> from <em>Eötvös Loránd University (ELTE)</em>.
-            I’m pivoting from ML/Computer Vision into Data Engineering — using my AI background to bring
-            strong <strong>data quality</strong>, <strong>automation</strong>, and <strong>production discipline</strong>
-            to pipelines.
-          </p>
-          <p>
-            I work with <strong>SQL</strong> (joins, window functions, MERGE, SCD2), <strong>Python</strong>, and
-            the Azure stack (<strong>ADF</strong>, <strong>ADLS Gen2</strong>, <strong>Databricks</strong>, <strong>Delta Lake</strong>).
-            My focus is shipping end-to-end systems: ingestion → transformation → curated datasets → documentation and repeatable runs.
+      <div class="hero-wrap container">
+        <div class="hero-left">
+          <p class="kicker">
+            Data Engineer (Azure) • SQL • Python • Lakehouse
           </p>
 
-          <div class="personal-info" role="list">
-            <div class="info-item" role="listitem">
-              <span class="info-title">Email:</span>
-              <span class="info-detail"><a href="mailto:amimoussaaymen@gmail.com">amimoussaaymen@gmail.com</a></span>
-            </div>
-            <div class="info-item" role="listitem">
-              <span class="info-title">Location:</span>
-              <span class="info-detail">Lyon, France (Open to EU relocation)</span>
-            </div>
-            <div class="info-item" role="listitem">
-              <span class="info-title">Languages:</span>
-              <span class="info-detail">Arabic (Native), English (C2), French (B1/B2), Hungarian (A2)</span>
-            </div>
-            <div class="info-item" role="listitem">
-              <span class="info-title">Links:</span>
-              <span class="info-detail">
-                <a href="https://www.linkedin.com/in/amimoussaaymen" target="_blank" rel="noopener">LinkedIn</a>
-                <span class="dot">•</span>
-                <a href="https://github.com/AmimoussamohammedAymen" target="_blank" rel="noopener">GitHub</a>
-              </span>
-            </div>
+          <h1>
+            I build <span class="accent">reliable data pipelines</span> that scale —
+            from ingestion to analytics-ready tables.
+          </h1>
+
+          <p class="lead">
+            I’m <strong>Aymen Amimoussa</strong>. I focus on <strong>ADF</strong>, <strong>ADLS Gen2</strong>,
+            <strong>Databricks</strong>, and <strong>Delta Lake</strong> with strong <strong>SQL + Python</strong>.
+            I also bring a Computer Vision / ML background (real-time industrial AI), which helps me build data systems
+            with strong validation and automation discipline.
+          </p>
+
+          <div class="hero-badges" aria-label="Key skills">
+            <span class="badge"><i class="fa-solid fa-database"></i> SQL (Windows, MERGE, SCD2)</span>
+            <span class="badge"><i class="fa-brands fa-microsoft"></i> Azure Data Factory</span>
+            <span class="badge"><i class="fa-solid fa-layer-group"></i> ADLS Gen2 • Medallion</span>
+            <span class="badge"><i class="fa-solid fa-bolt"></i> Databricks • Delta Lake</span>
           </div>
 
-          <div class="about-cta">
-            <a class="btn primary-btn" href="#featured">See featured work</a>
-            <a class="btn ghost-btn" href="#contact">Hire / collaborate</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Featured (Recruiter-first) -->
-    <section id="featured" class="featured container">
-      <div class="section-header">
-        <h2>Featured</h2>
-        <div class="underline"></div>
-      </div>
-
-      <div class="featured-grid">
-        <!-- Featured Project 1: Azure Lakehouse -->
-        <article class="featured-card">
-          <div class="featured-top">
-            <h3>Azure Lakehouse (End-to-End) — Bronze → Silver → Gold</h3>
-            <p class="featured-sub">
-              ADF + ADLS Gen2 + Databricks + Delta Lake • Incremental loads • SCD2 • Quality checks
-            </p>
+          <div class="typewriter" aria-label="Typewriter headline">
+            <span id="typewriter-text"></span><span class="cursor">|</span>
           </div>
 
-          <ul class="featured-bullets">
-            <li>Ingestion pipelines with parameters, validation, retries, and triggers.</li>
-            <li>Transformations in PySpark + Delta (MERGE upserts, schema evolution).</li>
-            <li>SCD Type 2 dimension + curated Gold tables for analytics.</li>
-          </ul>
-
-          <div class="featured-actions">
-            <!-- Replace with your repo once ready -->
-            <a class="btn primary-btn" href="https://github.com/AmimoussamohammedAymen" target="_blank" rel="noopener">
-              View on GitHub
+          <div class="hero-actions">
+            <a class="btn primary" href="#featured">View Featured Work</a>
+            <a class="btn secondary" href="#contact">Contact</a>
+            <a class="btn ghost" href="assets/Amimoussa_Aymen_CV.pdf" download>
+              Download CV
             </a>
-            <a class="btn secondary-btn" href="#projects">More projects</a>
-          </div>
-        </article>
-
-        <!-- Featured Project 2: CI/CD + Governance -->
-        <article class="featured-card">
-          <div class="featured-top">
-            <h3>Production Patterns — CI/CD, Secrets, and Data Quality Gates</h3>
-            <p class="featured-sub">
-              Azure DevOps • ADF Git mode • Key Vault • Deployment notes • Quality checks
-            </p>
           </div>
 
-          <ul class="featured-bullets">
-            <li>Repo structure that looks like a real team project (docs, diagrams, evidence).</li>
-            <li>Key Vault pattern for credentials + secure linked services.</li>
-            <li>Automated checks that fail the pipeline when data is invalid.</li>
-          </ul>
-
-          <div class="featured-actions">
-            <!-- Replace with your repo once ready -->
-            <a class="btn primary-btn" href="https://github.com/AmimoussamohammedAymen" target="_blank" rel="noopener">
-              View on GitHub
+          <div class="hero-meta">
+            <span><i class="fa-solid fa-location-dot"></i> Lyon, France</span>
+            <span class="dot">•</span>
+            <a href="mailto:amimoussaaymen@gmail.com"><i class="fa-solid fa-envelope"></i> Email</a>
+            <span class="dot">•</span>
+            <a href="https://www.linkedin.com/in/amimoussaaymen" target="_blank" rel="noreferrer">
+              <i class="fa-brands fa-linkedin"></i> LinkedIn
             </a>
-            <a class="btn ghost-btn" href="#contact">Ask about it</a>
+            <span class="dot">•</span>
+            <a href="https://github.com/AmimoussamohammedAymen" target="_blank" rel="noreferrer">
+              <i class="fa-brands fa-github"></i> GitHub
+            </a>
           </div>
-        </article>
+        </div>
+
+        <div class="hero-right">
+          <div class="avatar-card">
+            <div class="avatar">
+              <img src="assets/Amimoussa Aymen Laugh.jpg" alt="Aymen Amimoussa profile photo">
+            </div>
+
+            <div class="quick-facts">
+              <div class="fact">
+                <p class="fact-k">Focus</p>
+                <p class="fact-v">Azure Data Engineering</p>
+              </div>
+              <div class="fact">
+                <p class="fact-k">Strength</p>
+                <p class="fact-v">SQL + Python + automation</p>
+              </div>
+              <div class="fact">
+                <p class="fact-k">Edge</p>
+                <p class="fact-v">ML/CV background (quality mindset)</p>
+              </div>
+
+              <div class="mini-cta">
+                <a class="btn mini" href="#projects">See Projects</a>
+                <a class="btn mini outline" href="#contact">Hire / Collaborate</a>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
+
+      <div class="hero-gradient" aria-hidden="true"></div>
     </section>
 
-    <!-- Projects -->
-    <section id="projects" class="projects container">
-      <div class="section-header">
-        <h2>Projects</h2>
-        <div class="underline"></div>
-      </div>
-
-      <div class="projects-filter" aria-label="Project filters">
-        <button class="filter-btn active" data-filter="all">All</button>
-        <button class="filter-btn" data-filter="data-engineering">Data Engineering</button>
-        <button class="filter-btn" data-filter="azure">Azure</button>
-        <button class="filter-btn" data-filter="computer-vision">Computer Vision</button>
-        <button class="filter-btn" data-filter="ml">ML</button>
-      </div>
-
-      <div class="projects-grid">
-        <!-- Data Engineering (recommended to add ASAP) -->
-        <div class="project-card" data-category="data-engineering azure">
-          <div class="project-img">
-            <img src="assets/projects/azure-lakehouse.jpg" alt="Azure Lakehouse" loading="lazy" />
-          </div>
-          <div class="project-info">
-            <h3>Azure Lakehouse — Bronze/Silver/Gold</h3>
-            <p>
-              End-to-end pipelines with ADF + ADLS Gen2 + Databricks + Delta Lake. Incremental loads,
-              MERGE upserts, SCD2, and curated Gold datasets.
-            </p>
-            <div class="project-tags">
-              <span>ADF</span><span>ADLS</span><span>Databricks</span><span>Delta</span><span>SCD2</span>
-            </div>
-            <div class="project-links">
-              <!-- Replace with your repo link -->
-              <a href="https://github.com/AmimoussamohammedAymen" class="project-link" target="_blank" rel="noopener" aria-label="GitHub">
-                <i class="fab fa-github"></i>
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Existing projects (keep, but categorize properly) -->
-        <div class="project-card" data-category="computer-vision ml">
-          <div class="project-img">
-            <img src="assets/projects/smart-quality-control.jpg" alt="Smart Quality Control System" loading="lazy" />
-          </div>
-          <div class="project-info">
-            <h3>Smart Quality Control System</h3>
-            <p>Computer vision quality control for defect detection.</p>
-            <div class="project-tags">
-              <span>Computer Vision</span><span>PyTorch</span><span>OpenCV</span>
-            </div>
-            <div class="project-links">
-              <a href="https://github.com/AmimoussamohammedAymen/smart-quality-control" class="project-link" target="_blank" rel="noopener" aria-label="GitHub">
-                <i class="fab fa-github"></i>
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <div class="project-card" data-category="data-engineering ml">
-          <div class="project-img">
-            <img src="assets/projects/environmental-insights.jpg" alt="Environmental Insights" loading="lazy" />
-          </div>
-          <div class="project-info">
-            <h3>Environmental Insights</h3>
-            <p>Pipeline + analysis for environmental data and prediction tasks.</p>
-            <div class="project-tags">
-              <span>Data</span><span>Python</span><span>SQL</span>
-            </div>
-            <div class="project-links">
-              <a href="https://github.com/AmimoussamohammedAymen/environmental-insights" class="project-link" target="_blank" rel="noopener" aria-label="GitHub">
-                <i class="fab fa-github"></i>
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <div class="project-card" data-category="computer-vision ml">
-          <div class="project-img">
-            <img src="assets/projects/object-detection.jpg" alt="Real-time Object Detection System" loading="lazy" />
-          </div>
-          <div class="project-info">
-            <h3>Real-time Object Detection System</h3>
-            <p>YOLOv8 real-time detection with a simple app interface.</p>
-            <div class="project-tags">
-              <span>YOLOv8</span><span>FastAPI</span><span>Streamlit</span>
-            </div>
-            <div class="project-links">
-              <a href="https://github.com/AmimoussamohammedAymen/object-detection-system" class="project-link" target="_blank" rel="noopener" aria-label="GitHub">
-                <i class="fab fa-github"></i>
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <div class="project-card" data-category="computer-vision ml">
-          <div class="project-img">
-            <img src="assets/projects/cnc-machine.jpg" alt="CNC Machine Monitoring" loading="lazy" />
-          </div>
-          <div class="project-info">
-            <h3>CNC Process Monitoring (Thesis)</h3>
-            <p>Real-time industrial monitoring using YOLO-based detection/segmentation.</p>
-            <div class="project-tags">
-              <span>Industry 4.0</span><span>YOLO</span><span>Real-time</span>
-            </div>
-            <div class="project-links">
-              <a href="https://github.com/AmimoussamohammedAymen/Process-Monitoring-in-Case-of-Image-Processing" class="project-link" target="_blank" rel="noopener" aria-label="GitHub">
-                <i class="fab fa-github"></i>
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <div class="project-card" data-category="ml">
-          <div class="project-img">
-            <img src="assets/projects/house-prices.jpg" alt="House Prices Regression" loading="lazy" />
-          </div>
-          <div class="project-info">
-            <h3>House Prices — Regression</h3>
-            <p>Feature engineering + regression modeling for price prediction.</p>
-            <div class="project-tags">
-              <span>Regression</span><span>Feature Eng</span><span>Python</span>
-            </div>
-            <div class="project-links">
-              <a href="https://github.com/AmimoussamohammedAymen/House-Prices---Advanced-Regression-Techniques-Project" class="project-link" target="_blank" rel="noopener" aria-label="GitHub">
-                <i class="fab fa-github"></i>
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <div class="project-card" data-category="computer-vision ml">
-          <div class="project-img">
-            <img src="assets/projects/kannada.jpg" alt="Kannada Digit Recognition" loading="lazy" />
-          </div>
-          <div class="project-info">
-            <h3>Kannada Digit Recognition</h3>
-            <p>CNN-based handwritten digit recognition.</p>
-            <div class="project-tags">
-              <span>CNN</span><span>Deep Learning</span><span>Vision</span>
-            </div>
-            <div class="project-links">
-              <a href="https://github.com/AmimoussamohammedAymen/Kannada-Digit-Recognition-Project" class="project-link" target="_blank" rel="noopener" aria-label="GitHub">
-                <i class="fab fa-github"></i>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Experience -->
-    <section id="experience" class="experience container">
-      <div class="section-header">
-        <h2>Experience</h2>
-        <div class="underline"></div>
-      </div>
-
-      <div class="timeline">
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-content">
-            <h3>AI Engineer Intern (Data & Automation Focus)</h3>
-            <h4>msg Plaut Hungary — Budapest (Hybrid)</h4>
-            <p class="timeline-date">Jun 2024 – Sep 2024</p>
-            <ul>
-              <li>Built and maintained data pipelines supporting real-time industrial systems.</li>
-              <li>Designed SQL extraction & transformation logic for structured/semi-structured data.</li>
-              <li>Automated workflows using Python scripts; supported validation and monitoring.</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-content">
-            <h3>Software & Databases Technician (Intern)</h3>
-            <h4>Directorate Province of Ouargla — Algeria (On-site)</h4>
-            <p class="timeline-date">Nov 2022 – Dec 2023</p>
-            <ul>
-              <li>Supported SQL Server maintenance: backups, restores, monitoring, and query optimization.</li>
-              <li>Identified bottlenecks and improved data retrieval efficiency with SSMS tools.</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Skills -->
-    <section id="skills" class="skills container">
-      <div class="section-header">
-        <h2>Skills</h2>
-        <div class="underline"></div>
-      </div>
-
-      <div class="skills-content">
-        <div class="skills-category">
-          <h3>Data Engineering</h3>
-          <div class="chip-grid">
-            <span class="chip">SQL (Joins, Windows, MERGE)</span>
-            <span class="chip">Dimensional Modeling</span>
-            <span class="chip">SCD Type 2</span>
-            <span class="chip">ETL / ELT</span>
-            <span class="chip">Incremental Loads (Watermark/Hash)</span>
-            <span class="chip">Data Quality Checks</span>
-          </div>
-        </div>
-
-        <div class="skills-category">
-          <h3>Azure</h3>
-          <div class="chip-grid">
-            <span class="chip">Azure Data Factory (ADF)</span>
-            <span class="chip">ADLS Gen2</span>
-            <span class="chip">Azure SQL</span>
-            <span class="chip">Databricks</span>
-            <span class="chip">Delta Lake</span>
-            <span class="chip">Key Vault</span>
-            <span class="chip">Azure DevOps (CI/CD)</span>
-          </div>
-        </div>
-
-        <div class="skills-category">
-          <h3>Programming</h3>
-          <div class="chip-grid">
-            <span class="chip">Python</span>
-            <span class="chip">PySpark</span>
-            <span class="chip">Git</span>
-            <span class="chip">Linux</span>
-            <span class="chip">Docker (Basics)</span>
-          </div>
-        </div>
-
-        <div class="skills-category">
-          <h3>Previous Strengths (Value Add)</h3>
-          <div class="chip-grid">
-            <span class="chip">Computer Vision (YOLO)</span>
-            <span class="chip">Automation Mindset</span>
-            <span class="chip">Production Thinking</span>
-            <span class="chip">Documentation</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Certifications -->
-    <section id="certifications" class="education container">
-      <div class="section-header">
-        <h2>Certifications</h2>
-        <div class="underline"></div>
-      </div>
-
-      <div class="timeline">
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-content">
-            <h3>Fundamentals of Deep Learning</h3>
-            <h4>NVIDIA Workshop</h4>
-          </div>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-content">
-            <h3>Introduction to Data and Data Science</h3>
-            <h4>365 Data Science</h4>
-          </div>
-        </div>
-        <!-- Add Azure course/cert once completed -->
-      </div>
-    </section>
-
-    <!-- Contact -->
-    <section id="contact" class="contact container">
-      <div class="section-header">
-        <h2>Contact</h2>
-        <div class="underline"></div>
-      </div>
-
-      <div class="contact-wrapper">
-        <div class="contact-info">
-          <h3>Let’s connect</h3>
-          <p>
-            If you’re hiring for <strong>Data Engineer / Azure Data Engineer / ETL</strong> roles, I’d love to talk.
-            Fast response by email/LinkedIn.
+    <!-- FEATURED -->
+    <section id="featured" class="section">
+      <div class="container">
+        <div class="section-head">
+          <h2>Featured</h2>
+          <p class="sub">
+            Recruiter-first: here are the projects that best prove I can deliver production-style pipelines.
           </p>
+        </div>
 
-          <div class="contact-details">
-            <div class="contact-item">
-              <i class="fas fa-envelope"></i>
+        <div class="featured-grid">
+          <!-- Featured 1 -->
+          <article class="featured-card">
+            <div class="featured-top">
+              <div class="pill">Lakehouse • Azure</div>
+              <h3>Azure Lakehouse Pipeline (ADF → Databricks → Delta Lake)</h3>
+              <p class="muted">
+                End-to-end medallion architecture (Bronze/Silver/Gold) with incremental logic and clear documentation.
+              </p>
+            </div>
+            <ul class="checklist">
+              <li>ADF ingestion (ADLS ↔ Azure SQL) + parameterized pipelines</li>
+              <li>Delta MERGE upserts + schema evolution</li>
+              <li>Incremental loads (watermark/timestamp/hash)</li>
+              <li>Quality checks & validation patterns</li>
+            </ul>
+            <div class="featured-actions">
+              <a class="btn small primary" target="_blank" rel="noreferrer" href="https://github.com/AmimoussamohammedAymen/environmental-insights">
+                <i class="fa-brands fa-github"></i> Repo
+              </a>
+              <a class="btn small secondary" href="#contact">
+                <i class="fa-solid fa-paper-plane"></i> Ask for demo
+              </a>
+            </div>
+          </article>
+
+          <!-- Featured 2 -->
+          <article class="featured-card">
+            <div class="featured-top">
+              <div class="pill">SQL • DW</div>
+              <h3>SQL Warehouse Patterns (Windows, MERGE, SCD Type 2)</h3>
+              <p class="muted">
+                Interview-core + real-world: SCD2, deduping, top-N per group, change detection, and upserts.
+              </p>
+            </div>
+            <ul class="checklist">
+              <li>Window functions: ROW_NUMBER / LAG / LEAD</li>
+              <li>MERGE upsert patterns for dimensions/facts</li>
+              <li>SCD Type 2 table design & load logic</li>
+              <li>Indexes & execution plan awareness</li>
+            </ul>
+            <div class="featured-actions">
+              <a class="btn small primary" href="#projects"><i class="fa-solid fa-folder-open"></i> See projects</a>
+              <a class="btn small secondary" href="#skills"><i class="fa-solid fa-list-check"></i> Skills</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="section">
+      <div class="container">
+        <div class="section-head">
+          <h2>Projects</h2>
+          <p class="sub">
+            Filter by domain. Each project should have a clean README + screenshots + “how to run”.
+          </p>
+        </div>
+
+        <div class="filters" role="tablist" aria-label="Project filters">
+          <button class="filter-btn active" data-filter="all" role="tab" aria-selected="true">All</button>
+          <button class="filter-btn" data-filter="data" role="tab">Data Engineering</button>
+          <button class="filter-btn" data-filter="cv" role="tab">Computer Vision</button>
+          <button class="filter-btn" data-filter="ml" role="tab">ML / NLP</button>
+        </div>
+
+        <div class="projects-grid">
+          <!-- Data Engineering -->
+          <article class="project-card" data-category="data">
+            <div class="project-thumb">
+              <img src="assets/projects/environmental-insights.jpg" alt="Environmental Insights project">
+            </div>
+            <div class="project-body">
+              <div class="project-title">
+                <h3>Environmental Insights</h3>
+                <span class="tag">Data Engineering</span>
+              </div>
+              <p class="muted">
+                Data pipeline + analytics foundation for environmental data and prediction workflows.
+              </p>
+              <div class="chip-row">
+                <span class="chip">SQL</span>
+                <span class="chip">Python</span>
+                <span class="chip">Pipelines</span>
+              </div>
+              <div class="project-links">
+                <a target="_blank" rel="noreferrer" href="https://github.com/AmimoussamohammedAymen/environmental-insights" class="icon-btn" aria-label="Open GitHub repo">
+                  <i class="fa-brands fa-github"></i>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- CV / ML -->
+          <article class="project-card" data-category="cv ml">
+            <div class="project-thumb">
+              <img src="assets/projects/object-detection.jpg" alt="Object Detection project">
+            </div>
+            <div class="project-body">
+              <div class="project-title">
+                <h3>Real-time Object Detection System</h3>
+                <span class="tag">CV</span>
+              </div>
+              <p class="muted">
+                YOLOv8 detection pipeline + API/demo stack (FastAPI + Streamlit).
+              </p>
+              <div class="chip-row">
+                <span class="chip">YOLOv8</span>
+                <span class="chip">FastAPI</span>
+                <span class="chip">Streamlit</span>
+              </div>
+              <div class="project-links">
+                <a target="_blank" rel="noreferrer" href="https://github.com/AmimoussamohammedAymen/object-detection-system" class="icon-btn" aria-label="Open GitHub repo">
+                  <i class="fa-brands fa-github"></i>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card" data-category="cv ml">
+            <div class="project-thumb">
+              <img src="assets/projects/cnc-machine.jpg" alt="CNC monitoring project">
+            </div>
+            <div class="project-body">
+              <div class="project-title">
+                <h3>CNC Process Monitoring (Thesis)</h3>
+                <span class="tag">CV</span>
+              </div>
+              <p class="muted">
+                Real-time monitoring using YOLOv8 segmentation in industrial environment.
+              </p>
+              <div class="chip-row">
+                <span class="chip">Segmentation</span>
+                <span class="chip">Real-time</span>
+                <span class="chip">Industrial</span>
+              </div>
+              <div class="project-links">
+                <a target="_blank" rel="noreferrer" href="https://github.com/AmimoussamohammedAymen/Process-Monitoring-in-Case-of-Image-Processing" class="icon-btn" aria-label="Open GitHub repo">
+                  <i class="fa-brands fa-github"></i>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card" data-category="ml">
+            <div class="project-thumb">
+              <img src="assets/projects/house-prices.jpg" alt="House prices regression project">
+            </div>
+            <div class="project-body">
+              <div class="project-title">
+                <h3>House Prices Regression</h3>
+                <span class="tag">ML</span>
+              </div>
+              <p class="muted">
+                Feature engineering + regression models for price prediction.
+              </p>
+              <div class="chip-row">
+                <span class="chip">Regression</span>
+                <span class="chip">EDA</span>
+                <span class="chip">Features</span>
+              </div>
+              <div class="project-links">
+                <a target="_blank" rel="noreferrer" href="https://github.com/AmimoussamohammedAymen/House-Prices---Advanced-Regression-Techniques-Project" class="icon-btn" aria-label="Open GitHub repo">
+                  <i class="fa-brands fa-github"></i>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card" data-category="cv ml">
+            <div class="project-thumb">
+              <img src="assets/projects/kannada.jpg" alt="Kannada digit recognition project">
+            </div>
+            <div class="project-body">
+              <div class="project-title">
+                <h3>Kannada Digit Recognition</h3>
+                <span class="tag">CV</span>
+              </div>
+              <p class="muted">
+                CNN-based recognition for handwritten digits with model evaluation and improvements.
+              </p>
+              <div class="chip-row">
+                <span class="chip">CNN</span>
+                <span class="chip">PyTorch</span>
+                <span class="chip">Training</span>
+              </div>
+              <div class="project-links">
+                <a target="_blank" rel="noreferrer" href="https://github.com/AmimoussamohammedAymen/Kannada-Digit-Recognition-Project" class="icon-btn" aria-label="Open GitHub repo">
+                  <i class="fa-brands fa-github"></i>
+                </a>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section id="experience" class="section alt">
+      <div class="container">
+        <div class="section-head">
+          <h2>Experience</h2>
+          <p class="sub">
+            Focused on impact + tools (no fluff). This is how recruiters scan.
+          </p>
+        </div>
+
+        <div class="timeline">
+          <article class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-card">
+              <div class="timeline-top">
+                <h3>AI Engineer (Intern) — msg Plaut Hungary</h3>
+                <span class="time">Jun 2024 – Sep 2024 • Budapest (Hybrid)</span>
+              </div>
+              <ul>
+                <li>Built automation scripts in <strong>Python</strong> for data preparation, validation, and repeatable experiments.</li>
+                <li>Worked with structured datasets + production constraints for real-time industrial AI systems.</li>
+                <li>Collaborated with engineers on data handling, monitoring signals, and system-level integration.</li>
+              </ul>
+              <div class="chip-row">
+                <span class="chip">Python</span><span class="chip">Data Prep</span><span class="chip">Automation</span><span class="chip">Industrial AI</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-card">
+              <div class="timeline-top">
+                <h3>Software & Database Technician (Intern) — Ouargla Province Directorate</h3>
+                <span class="time">Nov 2022 – Dec 2023 • Algeria</span>
+              </div>
+              <ul>
+                <li>Assisted with <strong>SQL Server</strong> operations: backups, restores, and recovery procedures.</li>
+                <li>Monitored performance and helped optimize queries for faster retrieval.</li>
+              </ul>
+              <div class="chip-row">
+                <span class="chip">SQL Server</span><span class="chip">SSMS</span><span class="chip">DB Ops</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills" class="section">
+      <div class="container">
+        <div class="section-head">
+          <h2>Skills</h2>
+          <p class="sub">
+            Organized to match Data Engineer job descriptions (Azure + SQL + Spark) while keeping your ML edge.
+          </p>
+        </div>
+
+        <div class="skills-grid">
+          <div class="skill-box">
+            <h3>Data Engineering (Core)</h3>
+            <div class="chips">
+              <span class="chip">SQL</span>
+              <span class="chip">Data Modeling</span>
+              <span class="chip">ETL / ELT</span>
+              <span class="chip">Incremental Loads</span>
+              <span class="chip">MERGE Upserts</span>
+              <span class="chip">SCD Type 2</span>
+              <span class="chip">Data Quality Checks</span>
+            </div>
+          </div>
+
+          <div class="skill-box">
+            <h3>Azure Stack</h3>
+            <div class="chips">
+              <span class="chip">Azure Data Factory (ADF)</span>
+              <span class="chip">Azure Data Lake Gen2</span>
+              <span class="chip">Azure SQL</span>
+              <span class="chip">Key Vault (concepts)</span>
+              <span class="chip">Triggers • Parameters</span>
+            </div>
+          </div>
+
+          <div class="skill-box">
+            <h3>Databricks / Spark</h3>
+            <div class="chips">
+              <span class="chip">PySpark DataFrames</span>
+              <span class="chip">Spark SQL</span>
+              <span class="chip">Delta Lake</span>
+              <span class="chip">Partitioning</span>
+              <span class="chip">Optimize / Vacuum (concepts)</span>
+            </div>
+          </div>
+
+          <div class="skill-box">
+            <h3>Programming</h3>
+            <div class="chips">
+              <span class="chip">Python</span>
+              <span class="chip">Pandas</span>
+              <span class="chip">Git</span>
+              <span class="chip">Linux</span>
+              <span class="chip">APIs</span>
+            </div>
+          </div>
+
+          <div class="skill-box">
+            <h3>ML / CV (Value-Add)</h3>
+            <div class="chips">
+              <span class="chip">Computer Vision</span>
+              <span class="chip">YOLOv8</span>
+              <span class="chip">Model Validation</span>
+              <span class="chip">Automation Mindset</span>
+              <span class="chip">MLOps basics</span>
+            </div>
+          </div>
+
+          <div class="skill-box">
+            <h3>Languages</h3>
+            <div class="chips">
+              <span class="chip">Arabic (Native)</span>
+              <span class="chip">English (C2)</span>
+              <span class="chip">French (B2)</span>
+              <span class="chip">Hungarian (A2)</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section id="education" class="section alt">
+      <div class="container">
+        <div class="section-head">
+          <h2>Education</h2>
+          <p class="sub">Short, clean, no filler.</p>
+        </div>
+
+        <div class="edu-grid">
+          <article class="edu-card">
+            <h3>MSc — Computer Science (Digital Factory 4.0)</h3>
+            <p class="muted">Eötvös Loránd University (ELTE), Budapest • 2023–2025</p>
+            <p><strong>Thesis:</strong> Process Monitoring using Computer Vision (YOLOv8 segmentation) for CNC machines.</p>
+          </article>
+
+          <article class="edu-card">
+            <h3>BSc — Mathematics & Computing</h3>
+            <p class="muted">Kasdi Merbah University, Ouargla • 2020–2023</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="section">
+      <div class="container">
+        <div class="section-head">
+          <h2>Contact</h2>
+          <p class="sub">
+            Want a quick demo of my lakehouse project or need help shipping pipelines? Message me.
+          </p>
+        </div>
+
+        <div class="contact-grid">
+          <div class="contact-card">
+            <h3>Let’s connect</h3>
+
+            <div class="contact-row">
+              <i class="fa-solid fa-envelope"></i>
               <div>
-                <h4>Email</h4>
+                <p class="muted">Email</p>
                 <a href="mailto:amimoussaaymen@gmail.com">amimoussaaymen@gmail.com</a>
               </div>
             </div>
 
-            <div class="contact-item">
-              <i class="fas fa-map-marker-alt"></i>
+            <div class="contact-row">
+              <i class="fa-brands fa-linkedin"></i>
               <div>
-                <h4>Location</h4>
-                <p>Lyon, France • Open to EU relocation</p>
+                <p class="muted">LinkedIn</p>
+                <a target="_blank" rel="noreferrer" href="https://www.linkedin.com/in/amimoussaaymen">linkedin.com/in/amimoussaaymen</a>
               </div>
             </div>
 
-            <div class="contact-social" aria-label="Social links">
-              <a href="https://www.linkedin.com/in/amimoussaaymen" target="_blank" rel="noopener" aria-label="LinkedIn">
-                <i class="fab fa-linkedin"></i>
-              </a>
-              <a href="https://github.com/AmimoussamohammedAymen" target="_blank" rel="noopener" aria-label="GitHub">
-                <i class="fab fa-github"></i>
-              </a>
-              <a href="mailto:amimoussaaymen@gmail.com" aria-label="Email">
-                <i class="fas fa-envelope"></i>
+            <div class="contact-row">
+              <i class="fa-brands fa-github"></i>
+              <div>
+                <p class="muted">GitHub</p>
+                <a target="_blank" rel="noreferrer" href="https://github.com/AmimoussamohammedAymen">github.com/AmimoussamohammedAymen</a>
+              </div>
+            </div>
+
+            <div class="contact-row">
+              <i class="fa-solid fa-location-dot"></i>
+              <div>
+                <p class="muted">Location</p>
+                <p>Lyon, France</p>
+              </div>
+            </div>
+
+            <div class="contact-actions">
+              <a class="btn small primary" href="assets/Amimoussa_Mohammed_Aymen_Germany_DE.pdf" download>
+                <i class="fa-solid fa-download"></i> Download CV
               </a>
             </div>
           </div>
-        </div>
 
-        <div class="contact-form">
-          <form id="contactForm" novalidate>
-            <div class="form-row">
-              <input type="text" id="name" name="name" placeholder="Your Name" required />
-              <input type="email" id="email" name="email" placeholder="Your Email" required />
-            </div>
-            <input type="text" id="subject" name="subject" placeholder="Subject" required />
-            <textarea id="message" name="message" placeholder="Your Message" rows="6" required></textarea>
-            <button type="submit" class="btn primary-btn">Send message</button>
-            <p id="formStatus" class="form-status" aria-live="polite"></p>
+          <div class="form-card">
+            <h3>Send a message</h3>
+            <form id="contactForm" novalidate>
+              <div class="form-row">
+                <input type="text" name="name" id="name" placeholder="Your name" required>
+                <input type="email" name="email" id="email" placeholder="Your email" required>
+              </div>
+              <input type="text" name="subject" id="subject" placeholder="Subject" required>
+              <textarea name="message" id="message" rows="6" placeholder="Message" required></textarea>
 
-            <p class="form-hint">
-              Prefer email? <a href="mailto:amimoussaaymen@gmail.com">amimoussaaymen@gmail.com</a>
-            </p>
-          </form>
+              <button type="submit" class="btn primary">Send</button>
+              <p class="muted tiny">Tip: connect Formspree (free) or your backend endpoint.</p>
+              <p id="formStatus" class="muted tiny"></p>
+            </form>
+          </div>
         </div>
       </div>
     </section>
+
   </main>
 
   <footer class="footer">
-    <p>&copy; <span id="year"></span> Aymen Amimoussa — Data Engineer</p>
+    <div class="container footer-inner">
+      <p>© <span id="year"></span> Aymen Amimoussa • Data Engineer (Azure)</p>
+      <div class="footer-links">
+        <a target="_blank" rel="noreferrer" href="https://www.linkedin.com/in/amimoussaaymen">LinkedIn</a>
+        <span class="dot">•</span>
+        <a target="_blank" rel="noreferrer" href="https://github.com/AmimoussamohammedAymen">GitHub</a>
+        <span class="dot">•</span>
+        <a href="mailto:amimoussaaymen@gmail.com">Email</a>
+      </div>
+    </div>
   </footer>
 
   <script src="script.js"></script>
-  <script>
-    // Small helper (safe even if you remove it)
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
 </body>
 </html>
