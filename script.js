@@ -111,41 +111,63 @@
 
   // ---------------- Contact form ----------------
   // Replace endpoint with your Formspree endpoint
+  // ---------------- Contact form (Formspree) ----------------
   if (contactForm) {
     contactForm.addEventListener('submit', async (e) => {
       e.preventDefault();
       const status = $('#formStatus');
       if (status) status.textContent = 'Sending...';
-
-      const payload = {
-        name: contactForm.name.value.trim(),
-        email: contactForm.email.value.trim(),
-        subject: contactForm.subject.value.trim(),
-        message: contactForm.message.value.trim()
-      };
-
-      if (!payload.name || !payload.email || !payload.subject || !payload.message) {
+  
+      // Grab fields safely (avoid form.name conflicts)
+      const name = contactForm.querySelector('#name')?.value.trim();
+      const email = contactForm.querySelector('#email')?.value.trim();
+      const subject = contactForm.querySelector('#subject')?.value.trim();
+      const message = contactForm.querySelector('#message')?.value.trim();
+  
+      if (!name || !email || !subject || !message) {
         if (status) status.textContent = 'Please fill in all fields.';
         return;
       }
-
+  
       try {
         const endpoint = 'https://formspree.io/f/xnjjnalb';
+  
+        // FormData is the most compatible way with Formspree + GitHub Pages
+        const formData = new FormData();
+        formData.append('name', name);
+        formData.append('email', email);
+        formData.append('subject', subject);
+        formData.append('message', message);
+  
+        // Optional: make the email subject line nicer in your inbox
+        formData.append('_subject', `Portfolio: ${subject}`);
+        // Optional: route replies to sender (Formspree supports this)
+        formData.append('_replyto', email);
+  
         const res = await fetch(endpoint, {
           method: 'POST',
-          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-          body: JSON.stringify(payload)
+          body: formData,
+          headers: { 'Accept': 'application/json' }
         });
-
+  
         if (res.ok) {
           if (status) status.textContent = '✅ Sent! I will reply as soon as possible.';
           contactForm.reset();
         } else {
-          if (status) status.textContent = '⚠️ Something went wrong. Try again.';
+          // Try to show the real reason (helps debug)
+          let msg = '⚠️ Something went wrong. Try again.';
+          try {
+            const data = await res.json();
+            if (data && data.errors && data.errors.length) {
+              msg = `⚠️ ${data.errors[0].message}`;
+            }
+          } catch (_) {}
+          if (status) status.textContent = msg;
         }
       } catch (err) {
         if (status) status.textContent = '❌ Network error. Please try again.';
       }
     });
   }
+
 })();
