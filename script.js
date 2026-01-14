@@ -130,7 +130,7 @@
       }
 
       try {
-        const endpoint = 'https://formspree.io/f/your-form-id'; // <-- change this
+        const endpoint = 'https://formspree.io/f/xnjjnalb';
         const res = await fetch(endpoint, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
